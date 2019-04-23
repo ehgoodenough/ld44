@@ -1,6 +1,6 @@
 import Preact from "preact"
+import Index from "index.js"
 
-import model from "models/.js"
 import "views/Mount.view.less"
 
 import Frame from "views/Frame.view.js"
@@ -23,16 +23,16 @@ export default class Mount {
         )
     }
     get title() {
-        return model.title
+        return Index.model.title
     }
     get screen() {
-        if(model.screen == "TitleScreen") {
+        if(Index.model.screen == "TitleScreen") {
             return <TitleScreen/>
         }
-        if(model.screen == "GameOverScreen") {
+        if(Index.model.screen == "GameOverScreen") {
             return <GameOverScreen/>
         }
-        if(model.screen == "GameScreen") {
+        if(Index.model.screen == "GameScreen") {
             return <GameScreen/>
         }
         if(__STAGE__ == "DEVELOPMENT") {

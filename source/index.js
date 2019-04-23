@@ -1,11 +1,20 @@
 import "statgrab/do"
 
+import Model from "models/Mount.js"
+import View from "views/Mount.view.js"
+
+import Preact from "preact"
 import Yaafloop from "yaafloop"
 
-import model from "models/.js"
-import view from "views/.js"
+const Index = {}
+export default Index
 
-let loop = new Yaafloop((delta) => {
-    model.update(delta)
-    view.update()
+Index.Model = Model
+Index.View = View
+
+Index.model = new Model()
+
+Index.loop = new Yaafloop(function(delta) {
+    Index.model.update(delta)
+    Index.view = Preact.render(<Index.View/>, document.body, Index.view)
 })
