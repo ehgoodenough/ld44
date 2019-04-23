@@ -1,11 +1,7 @@
 import "statgrab/do"
 
-import Yaafloop from "yaafloop"
-
-import model from "models/.js"
-import view from "views/.js"
-
-let loop = new Yaafloop((delta) => {
-    model.update(delta)
-    view.update()
-})
+import Model from "models/Mount.js"
+import View from "views/Mount.view.js"
+import Thinktank from "library/Thinktank.js"
+Thinktank.model = new Model()
+Thinktank.view = View

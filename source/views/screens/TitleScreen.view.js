@@ -1,6 +1,6 @@
 import Preact from "preact"
 
-import model from "models/.js"
+
 
 import "views/screens/TitleScreen.view.less"
 

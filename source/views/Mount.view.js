@@ -1,6 +1,6 @@
 import Preact from "preact"
+import Thinktank from "library/Thinktank.js"
 
-import model from "models/.js"
 import "views/Mount.view.less"
 
 import Frame from "views/Frame.view.js"
@@ -23,16 +23,16 @@ export default class Mount {
         )
     }
     get title() {
-        return model.title
+        return Thinktank.model.title
     }
     get screen() {
-        if(model.screen == "TitleScreen") {
+        if(Thinktank.model.screen == "TitleScreen") {
             return <TitleScreen/>
         }
-        if(model.screen == "GameOverScreen") {
+        if(Thinktank.model.screen == "GameOverScreen") {
             return <GameOverScreen/>
         }
-        if(model.screen == "GameScreen") {
+        if(Thinktank.model.screen == "GameScreen") {
             return <GameScreen/>
         }
         if(__STAGE__ == "DEVELOPMENT") {
