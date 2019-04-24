@@ -1,3 +1,74 @@
+@faded-black: rgba(0, 0, 0, 0.1);
+@yellow: #D7B45A;
+@white: #FFFFFF;
+
 .TitleScreen {
-    // ...
+    .HeroSection {
+        width: 100%;
+        height: 100%;
+    }
+
+    .MenuSection {
+        top: 0em;
+        right: 0em;
+        bottom: 0em;
+        width: 50%;
+        padding: 1em 0em;
+        position: absolute;
+
+        background-color: @faded-black;
+
+        .Title {
+            h1 {
+                color: @white;
+                text-align: center;
+            }
+
+            h2 {
+                color: @white;
+                font-size: 0.5em;
+                font-weight: normal;
+                text-align: center;
+            }
+        }
+
+        .Links {
+            margin: 1em 0em;
+
+            .Link {
+                padding: 0.1em 0.5em;
+                margin-bottom: 0.25em;
+                position: relative;
+
+                cursor: pointer;
+                text-align: right;
+
+                &::before {
+                    content: "";
+
+                    top: 0em;
+                    right: 0em;
+                    bottom: 0em;
+                    width: 60%;
+                    z-index: -1;
+                    position: absolute;
+
+                    color: @white;
+                    background-color: @yellow;
+                    border-top-left-radius: 1em;
+                    border-bottom-left-radius: 1em;
+
+                    transition-property: width;
+                    transition-duration: 0.25s;
+                }
+
+                &:hover {
+                    &::before {
+                        width: 70%;
+                        transition-duration: 0.125s;
+                    }
+                }
+            }
+        }
+    }
 }
