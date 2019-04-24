@@ -2,6 +2,16 @@ import "statgrab/do"
 
 import Model from "models/Mount.js"
 import View from "views/Mount.view.js"
-import Thinktank from "library/Thinktank.js"
-Thinktank.model = new Model()
-Thinktank.view = View
+
+const Index = {
+    "View": View,
+    "model": new Model()
+}
+export default Index
+
+import Preact from "preact"
+import Yaafloop from "yaafloop"
+Index.loop = new Yaafloop(function(delta) {
+    Index.model.update(delta)
+    this.view = Preact.render(<Index.View/>, document.body, this.view)
+})

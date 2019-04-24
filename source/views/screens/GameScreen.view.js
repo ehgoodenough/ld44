@@ -1,24 +1,14 @@
 import Preact from "preact"
+import Index from "index.js"
 
 import "views/screens/GameScreen.view.less"
-
-const blocks = []
-for(let x = 0; x < 10; x += 1) {
-    for(let y = 0; y < 10; y += 1) {
-        blocks.push({
-            "position": {
-                "x": x, "y": y, "z": 0
-            }
-        })
-    }
-}
 
 export default class GameScreen {
     render() {
         return (
             <div class="GameScreen">
                 <Camera>
-                    {blocks.map((block) => (
+                    {Index.model.game.world.blocks.map((block) => (
                         <Block block={block}/>
                     ))}
                 </Camera>
