@@ -8,6 +8,7 @@ export default class GameScreen {
         return (
             <div class="GameScreen">
                 <Camera>
+                    <Block block={Index.model.game.player}/>
                     {Index.model.game.world.blocks.map((block) => (
                         <Block block={block}/>
                     ))}

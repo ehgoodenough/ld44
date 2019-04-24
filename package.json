@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "keyb": "^1.2.0",
-    "poin": "^1.0.2",
+    "poin": "^1.0.3",
     "preact": "^8.4.2",
     "shortid": "^2.2.14",
     "statgrab": "^1.2.0",
@@ -30,10 +30,10 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-react-jsx": "^7.3.0",
-    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-env": "^7.4.3",
     "chokidar": "^2.1.5",
     "codeglue": "^1.6.5",
-    "electron": "^4.1.1",
+    "electron": "^4.1.4",
     "gh-pages": "^2.0.1",
     "yargs": "^13.2.2"
   }
