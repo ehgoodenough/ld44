@@ -1,3 +1,38 @@
 .GameScreen {
-    // ...
+    .Camera {
+        width: 16em;
+        height: 9em;
+
+        // transition-duration: 2s;
+        // transition-property: transform;
+
+        // transform-origin: center;
+        // transform: translateZ(-2em) rotateY(5deg) rotateX(45deg) translateY(-3em);
+
+        // transform-origin: bottom;
+        // transform: rotateX(45deg); // translateY(-4em);
+        // transform-style: preserve-3d;
+
+        perspective: 50000em;
+        transform-origin: 0% 0% 0;
+        transform-style: preserve-3d;
+        transform:  translateX(16em / 2) translateY(1em) rotateX(65deg) rotateZ(45deg);
+    }
+
+    .Block {
+        width: 1em;
+        height: 1em;
+        position: absolute;
+        transform-style: preserve-3d;
+
+        .Face {
+            position: absolute;
+
+            border-width: 1px;
+            border-style: solid;
+            border-color: #111;
+
+            box-sizing: border-box;
+        }
+    }
 }

@@ -8,9 +8,9 @@ export default class Mount {
         })
 
         this.screen = "TitleScreen"
-        // if(__STAGE__ == "DEVELOPMENT") {
-        //     this.screen = "GameScreen"
-        // }
+        if(__STAGE__ == "DEVELOPMENT") {
+            this.screen = "GameScreen"
+        }
     }
     update(delta) {
         this.game.update(delta)

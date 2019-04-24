@@ -1,7 +1,5 @@
 import Preact from "preact"
 
-
-
 import "views/screens/GameOverScreen.view.less"
 
 export default class GameOverScreen {
