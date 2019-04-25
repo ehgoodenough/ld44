@@ -1,5 +1,5 @@
-const Yargs = require("yargs")
-const Chokidar = require("chokidar")
+// const Yargs = require("yargs")
+// const Chokidar = require("chokidar")
 const Electron = require("electron")
 
 let browser = undefined
@@ -15,12 +15,12 @@ Electron.app.on("ready", function() {
 
     browser.loadFile(directory + "/index.html")
 
-    if(Yargs.argv.stage === "development") {
-        browser.webContents.openDevTools()
-        Chokidar.watch(directory).on("all", function() {
-            browser.reload()
-        })
-    }
+    // if(Yargs.argv.stage === "development") {
+    //     browser.webContents.openDevTools()
+    //     Chokidar.watch(directory).on("all", function() {
+    //         browser.reload()
+    //     })
+    // }
 
     browser.on("closed", () => {
         browser = undefined

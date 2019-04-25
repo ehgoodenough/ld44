@@ -1,5 +1,6 @@
 Before the jam:
-- Figure out how to bundle Electron.
+- Make a Options Menu with LocalStorage.
+- Add escape button to return to the TitleScreen.
 - Manage sounds and music.
 
 Eventually:

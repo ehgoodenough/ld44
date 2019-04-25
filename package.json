@@ -1,19 +1,37 @@
 {
   "name": "ld44",
+  "description": "A game for Ludum Dare 44.",
+  "author": "Andrew McPherson <@ehgoodenough>",
   "version": "1.0.0",
   "private": true,
   "main": "main.js",
-  "contributors": [
-    "Andrew McPherson <@ehgoodenough>"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/ehgoodenough/ld44"
   },
+  "build": {
+    "appId": "com.ehgoodenough.ld44",
+    "files": [
+        "builds/web/",
+        "main.js"
+    ],
+    "directories": {
+      "output": "builds/electron"
+    },
+    "mac": {
+      "category": "public.app-category.games"
+    },
+    "win": {
+      "target": [
+        "msi"
+      ]
+    }
+  },
   "scripts": {
     "build": "codeglue --stage=production",
     "start": "codeglue --stage=development --mode=server",
-    "open": "electron . --stage=development",
+    "electron:start": "electron . --stage=development",
+    "electron:build": "electron-builder build",
     "deploy": "gh-pages --dist builds/web"
   },
   "engines": {
