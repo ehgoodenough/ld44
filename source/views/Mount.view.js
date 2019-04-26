@@ -2,7 +2,6 @@ import Preact from "preact"
 import Index from "index.js"
 
 import "views/Mount.view.less"
-
 import Frame from "views/Frame.view.js"
 
 import GameScreen from "views/screens/GameScreen.view.js"

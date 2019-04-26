@@ -2,6 +2,7 @@ import Preact from "preact"
 import Index from "index"
 
 import "views/screens/TitleScreen.view.less"
+import Link from "views/Link.view.js"
 
 export default class TitleScreen {
     render() {
@@ -13,7 +14,7 @@ export default class TitleScreen {
                         <h2>A subtitle about the game.</h2>
                     </div>
                     <div class="Links">
-                        <Link label="Play" screen="GameScreen"/>
+                        <Link label="Play" sequence="Play"/>
                         <Link label="Options" screen="OptionsScreen"/>
                         <Link label="Feedback" screen="FeedbackScreen"/>
                     </div>
@@ -21,20 +22,5 @@ export default class TitleScreen {
                 <section class="HeroSection"/>
             </div>
         )
-    }
-}
-
-class Link {
-    render() {
-        return (
-            <div class="Link" onClick={this.onClick}>
-                {this.props.label}
-            </div>
-        )
-    }
-    get onClick() {
-        return (event) => {
-            Index.model.screen = this.props.screen
-        }
     }
 }

@@ -1,3 +1,49 @@
+@import "../Base.view.less";
+
 .GameScreen {
     // ...
+    .PauseMenu {
+        top: 0em;
+        left: 0em;
+        right: 0em;
+        bottom: 0em;
+        margin: auto;
+        width: 5em;
+        height: 3.5em;
+        position: absolute;
+        padding: 0.5em;
+
+        text-align: center;
+        border-radius: @roundness;
+        background-color: @faded-black;
+
+        h1 {
+            font-size: 1em;
+            margin-bottom: @small-gutter;
+        }
+
+        .Link {
+            font-size: 0.5em;
+            text-decoration: underline;
+
+            &:hover {
+                color: @yellow;
+            }
+        }
+
+        small {
+            display: block;
+            margin-top: @small-gutter;
+            font-size: 0.25em;
+            line-height: 1em;
+        }
+
+        bottom: @frame-height * -2;
+        transition-property: bottom;
+        transition-duration: 0.5s;
+        &[isPaused] {
+            bottom: 0em;
+            transition-duration: 0.25s;
+        }
+    }
 }
