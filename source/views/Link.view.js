@@ -6,9 +6,10 @@ import "views/Link.view.less"
 export default class Link {
     render() {
         return (
-            <div class="Link" onClick={this.onClick}>
+            <a class="Link" onClick={this.onClick}
+                href={this.props.url} target="_blank">
                 {this.props.children}
-            </div>
+            </a>
         )
     }
     get onClick() {

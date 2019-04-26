@@ -12,8 +12,8 @@
   "build": {
     "appId": "com.ehgoodenough.ld44",
     "files": [
-        "builds/web/",
-        "main.js"
+      "builds/web/",
+      "main.js"
     ],
     "directories": {
       "output": "builds/electron"
@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "keyb": "^1.2.0",
+    "local-storage-json": "^1.0.0",
     "poin": "^1.0.2",
     "preact": "^8.4.2",
     "shortid": "^2.2.14",

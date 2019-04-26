@@ -16,7 +16,7 @@ export default class TitleScreen {
                     <div class="Links">
                         <Link screen="GameScreen">Play</Link>
                         <Link screen="OptionsScreen">Options</Link>
-                        <Link screen="FeedbackScreen">Feedback</Link>
+                        <Link url="https://ldjam.com">Feedback</Link>
                     </div>
                 </section>
                 <section class="HeroSection"/>
