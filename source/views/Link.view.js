@@ -7,7 +7,7 @@ export default class Link {
     render() {
         return (
             <div class="Link" onClick={this.onClick}>
-                {this.props.label}
+                {this.props.children}
             </div>
         )
     }
@@ -16,11 +16,9 @@ export default class Link {
             if(this.props.screen != undefined) {
                 Index.model.screen = this.props.screen
             }
-            if(this.props.sequence == "Play") {
-                Index.model.screen = "GameScreen"
-                Index.model.startGame()
-                // OR CONTINUE GAME
-                // AND PROMPT IF THEY'LL LOSE PROGRESS
+            if(this.props.onClick != undefined
+            && this.props.onClick instanceof Function) {
+                this.props.onClick(event)
             }
         }
     }

@@ -14,9 +14,9 @@ export default class TitleScreen {
                         <h2>A subtitle about the game.</h2>
                     </div>
                     <div class="Links">
-                        <Link label="Play" sequence="Play"/>
-                        <Link label="Options" screen="OptionsScreen"/>
-                        <Link label="Feedback" screen="FeedbackScreen"/>
+                        <Link screen="GameScreen">Play</Link>
+                        <Link screen="OptionsScreen">Options</Link>
+                        <Link screen="FeedbackScreen">Feedback</Link>
                     </div>
                 </section>
                 <section class="HeroSection"/>

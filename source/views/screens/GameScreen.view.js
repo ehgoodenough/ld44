@@ -24,16 +24,23 @@ export default class GameScreen {
 class PauseMenu {
     render() {
         return (
-            <div class="PauseMenu" isPaused={Index.model.game.isPaused} onClick={this.onClick}>
+            <div class="PauseMenu" onClick={this.onClick} isPaused={Index.model.game.isPaused}>
                 <h1>Paused!!!</h1>
-                <Link label="Return to Titlescreen?" screen="TitleScreen"/>
-                <small>Don't worry, your progress will be saved!</small>
+                <Link screen="TitleScreen" onClick={this.onClickLink}>
+                    <span>Return to Titlescreen?</span>
+                    <small>Don't worry, your progress will be saved!</small>
+                </Link>
             </div>
         )
     }
     get onClick() {
         return (event) => {
             event.stopPropagation()
+        }
+    }
+    get onClickLink() {
+        return (event) => {
+            Index.model.game.isPaused = false
         }
     }
 }

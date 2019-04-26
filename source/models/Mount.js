@@ -5,9 +5,9 @@ export default class Mount {
         this.title = model.title || "LD44"
 
         this.screen = "TitleScreen"
+        this.startGame()
         if(__STAGE__ == "DEVELOPMENT") {
             this.screen = "GameScreen"
-            this.startGame()
         }
     }
     update(delta) {
