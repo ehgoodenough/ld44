@@ -1,13 +1,13 @@
 import LocalStorage from "local-storage-json"
 
 import Game from "models/Game.js"
-import Audio from "models/Audio.js"
+import Audiomix from "models/Audiomix.js"
 
 export default class Mount {
     constructor(model = {}) {
         this.title = model.title || "LD44"
 
-        this.audio = new Audio()
+        this.audio = new Audiomix()
 
         this.screen = "TitleScreen"
         if(__STAGE__ == "DEVELOPMENT") {
@@ -18,8 +18,8 @@ export default class Mount {
         this.startGame()
     }
     update(delta) {
-        if(this.screen === "GameScreen") {
-            if(this.game !== undefined) {
+        if(this.screen == "GameScreen") {
+            if(this.game != undefined) {
                 this.game.update(delta)
             }
         }

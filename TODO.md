@@ -7,3 +7,4 @@ Eventually:
 - Add url/history/back-button support to the screens.
 - Consider letting users reset their game from the title screen.
 - Consider transitioning between screens (title -> options, title -> game).
+- Teach the audio manager to cycle between tracks w/ local storage.

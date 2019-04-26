@@ -14,26 +14,32 @@ export default class OptionsScreen {
                     <label>Music Volume</label>
                     <input class="Volume" type="range" min="1" max="100"
                         value={Index.model.audio.musicVolume}
-                        onInput={this.onChangeMusicVolume}/>
+                        onInput={this.onInputMusicVolume}/>
                 </div>
                 <div class="Option">
                     <label>Sound Volume</label>
                     <input class="Volume" type="range" min="1" max="100"
                         value={Index.model.audio.soundVolume}
-                        onInput={this.onChangeSoundVolume}/>
+                        onInput={this.onInputSoundVolume}
+                        onChange={this.onChangeSoundVolume}/>
                 </div>
                 <Link screen="TitleScreen">Back</Link>
             </div>
         )
     }
-    get onChangeMusicVolume() {
+    get onInputMusicVolume() {
         return (event) => {
             Index.model.audio.setMusicVolume(event.target.value)
         }
     }
-    get onChangeSoundVolume() {
+    get onInputSoundVolume() {
         return (event) => {
             Index.model.audio.setSoundVolume(event.target.value)
+        }
+    }
+    get onChangeSoundVolume() {
+        return (event) => {
+            Index.model.audio.playSound()
         }
     }
 }
