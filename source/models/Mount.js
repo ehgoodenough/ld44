@@ -12,7 +12,6 @@ export default class Mount {
         this.screen = "TitleScreen"
         if(__STAGE__ == "DEVELOPMENT") {
             this.screen = "GameScreen"
-            this.screen = "OptionsScreen"
         }
 
         this.startGame()
