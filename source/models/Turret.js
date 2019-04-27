@@ -82,10 +82,7 @@ export default class Turret {
                 this.shots -= 1
                 this.timer = 0.125
                 Index.model.game.add(new Projectile({
-                    "velocity": {
-                        "x": Math.cos(this.rotation) * 0.25,
-                        "y": Math.sin(this.rotation) * 0.25,
-                    },
+                    "rotation": this.rotation,
                     "position": this.position,
                     "affiliation": "baddies",
                 }))

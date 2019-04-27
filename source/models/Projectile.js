@@ -10,8 +10,13 @@ export default class Projectile {
         this.width = 0.5
         this.height = 0.5
 
+        this.speed = projectile.speed || 0.5
+        this.rotation = projectile.rotation || 0
         this.position = clonedeep(projectile.position)
-        this.velocity = clonedeep(projectile.velocity)
+        
+        this.velocity = {}
+        this.velocity.x = Math.cos(this.rotation) * this.speed
+        this.velocity.y = Math.sin(this.rotation) * this.speed
 
         this.affiliation = projectile.affiliation
 

@@ -24,7 +24,7 @@ export default class Player {
     update(delta) {
         if(Keyb.wasJustPressed("<space>")) {
             Index.model.game.add(new Projectile({
-                "velocity": {"x": 0, "y": -0.5},
+                "rotation": 0,
                 "position": this.position,
                 "affiliation": "goodies",
             }))
