@@ -70,4 +70,7 @@ export default class Player {
             this.velocity.y = 0
         }
     }
+    beHit(projectile) {
+        console.log("!")
+    }
 }

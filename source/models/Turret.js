@@ -20,6 +20,8 @@ export default class Turret {
         this.isDoneShooting = false
 
         this.deceleration = 0.25
+
+        this.group = "baddies"
     }
     update(delta) {
         if(this.isShooting == false) {
@@ -72,6 +74,9 @@ export default class Turret {
                 this.timer = 2
             }
         }
+    }
+    beHit(projectile) {
+        Index.model.game.remove(this)
     }
     get color() {
         if(this.isShooting) {

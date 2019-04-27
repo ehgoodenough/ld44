@@ -23,5 +23,15 @@ export default class Game {
     add(entity) {
         entity.id = entity.id || Id.generate()
         this.entities[entity.id] = entity
+        if(entity.group != undefined) {
+            this[entity.group] = this[entity.group] || {}
+            this[entity.group][entity.id] = entity
+        }
+    }
+    remove(entity) {
+        delete this.entities[entity.id]
+        if(entity.group != undefined) {
+            delete this[entity.group][entity.id]
+        }
     }
 }

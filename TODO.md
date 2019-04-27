@@ -15,6 +15,8 @@ Sunday: Polish!
 
 
 
+To Do For Bugs:
+- Fix the turrets when rotating from 360deg to 0deg.
 
 To Do For Polish:
 - Add icons to the electron build.
