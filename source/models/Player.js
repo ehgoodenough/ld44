@@ -89,6 +89,8 @@ export default class Player {
         if(this.isDamaged > 0
         && Math.floor(Index.model.timer) % 3 == 0) {
             return 0.25
+        } else {
+            return 1
         }
     }
 }

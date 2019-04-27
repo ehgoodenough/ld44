@@ -22,8 +22,25 @@ export default class Turret {
         this.deceleration = 0.25
 
         this.group = "baddies"
+
+        this.health = 10
+        this.opacity = 1
+
+        this.shake = {"x": 0, "y": 0}
     }
     update(delta) {
+        if(this.isDead == true) {
+            if(this.opacity > 0) {
+                this.opacity -= 0.06 * delta.f
+                if(this.opacity < 0) {
+                    this.opacity = 0
+                }
+                this.width += 0.25 * delta.f
+                this.height += 0.25 * delta.f
+                this.rotation += (Math.PI / 32) * delta.f
+            }
+            return
+        }
         if(this.isShooting == false) {
             this.targetRotation = getRotation(this.position, Index.model.game.player.position)
             if(this.rotation < this.targetRotation) {
@@ -43,9 +60,17 @@ export default class Turret {
             if(this.velocityRotation < -1) {
                 this.velocityRotation = -1
             }
+        }
 
-            // TODO: Don't spin around when I go clockwise around you.
-            // TODO: Don't jitter.
+        this.isDamaged -= delta.ms
+        if(this.isDamaged > 0) {
+            this.shake.x = Math.random() * 0.1
+            this.shake.y = Math.random() * 0.1
+        }
+        if(this.isDamaged < 0) {
+            this.isDamaged = 0
+            this.shake.x = 0
+            this.shake.y = 0
         }
 
         this.timer -= delta.s
@@ -76,16 +101,26 @@ export default class Turret {
         }
     }
     beHit(projectile) {
-        Index.model.game.remove(this)
+        this.isDamaged = 100
+        this.health -= 1
+        if(this.health <= 0) {
+            this.isDead = true
+        }
     }
     get color() {
-        if(this.isShooting) {
-            if(this.shots > 0
-            && this.shots < 3
-            && this.timer * 100000 % 2) {
-                return "#FFFFFF"
+        if(this.isDead != true) {
+            if(this.isDamaged > 0) {
+                if(Math.floor(Index.model.timer) % 2 == 0) {
+                    return "#FFFFFF"
+                }
             }
-            return "#7B2319"
+            if(this.isShooting) {
+                if(this.shots > 0
+                && this.shots < 3) {
+                    return "#FFFFFF"
+                }
+                return "#7B2319"
+            }
         }
         return "#A52F22"
     }

@@ -31,14 +31,16 @@ export default class Projectile {
         if(this.affiliation == "baddies") {
             const goodie = Index.model.game.player
             const distance = getDistance(this.position, goodie.position)
-            if(goodie.isDamaged == 0 && distance < this.width) {
+            if(goodie.isDamaged == 0
+            && distance < this.width) {
                 Index.model.game.remove(this)
                 goodie.beHit(this)
             }
         } else if(this.affiliation == "goodies") {
             Object.values(Index.model.game.baddies).find((baddie) => {
                 const distance = getDistance(this.position, baddie.position)
-                if(distance < this.width) {
+                if(baddie.isDead != true
+                && distance < this.width) {
                     Index.model.game.remove(this)
                     baddie.beHit(this)
                 }

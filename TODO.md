@@ -13,10 +13,6 @@ Sunday: Polish!
 - UI/UX - Everything flows well
 - Juice - Everything feels good
 
-- Turrets should shake and flash when they take damage
-- After taking too much damage, they should explode
-- Projectiles should spin.
-
 To Do For Bugs:
 - Fix the turrets when rotating from 360deg to 0deg.
 
