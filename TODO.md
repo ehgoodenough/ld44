@@ -1,6 +1,5 @@
 To Do:
 - Fix the turrets when rotating from 360deg to 0deg.
-- Voxel World Design and Collision like Jackal?
 
 Sunday: Polish!
 - Aesthetics - Everything looks good

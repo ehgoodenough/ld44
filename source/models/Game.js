@@ -10,7 +10,7 @@ export default class Game {
 
         this.add(this.player = new Player())
         this.add(new Turret({
-            "position": {"x": 16 * 0.75, "y": 9 * 0.5}
+            "position": {"x": 16 * 0.5, "y": 9 * 0.5}
         }))
     }
     update(delta) {
