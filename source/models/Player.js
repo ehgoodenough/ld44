@@ -26,7 +26,8 @@ export default class Player {
     update(delta) {
         if(this.isDead === true) {
             this.isDeadTimer -= delta.ms
-            if(this.isDeadTimer <= 0) {
+            if(this.isDeadTimer <= 0
+            || this.isDeadTimer <= 1500 && Keyb.wasJustPressed("<space>")) {
                 Index.model.startGame()
             }
             return
@@ -104,7 +105,7 @@ export default class Player {
     }
     die() {
         this.isDead = true
-        this.isDeadTimer = 1000
+        this.isDeadTimer = 2500
     }
     pickupHeart() {
         this.hearts += 1
