@@ -1,18 +1,25 @@
 import Keyb from "keyb"
+import Id from "shortid"
 
 import Player from "models/Player.js"
 
 export default class Game {
     constructor(game) {
-        console.info("Starting game.")
+        this.entities = {}
 
-        this.player = new Player()
+        this.add(this.player = new Player())
     }
     update(delta) {
         if(Keyb.wasJustPressed("<escape>")) {
             this.isPaused = !this.isPaused
         }
 
-        this.player.update(delta)
+        Object.values(this.entities).forEach((entity) => {
+            entity.update(delta)
+        })
+    }
+    add(entity) {
+        entity.id = entity.id || Id.generate()
+        this.entities[entity.id] = entity
     }
 }

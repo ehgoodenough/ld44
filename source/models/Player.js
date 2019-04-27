@@ -1,16 +1,32 @@
 import Keyb from "keyb"
+import Index from "index"
 
 const FRAME_WIDTH = 16
 const FRAME_HEIGHT = 9
 
+import Projectile from "models/Projectile.js"
+
 export default class Player {
     constructor() {
+        this.width = 1
+        this.height = 1
+
         this.position = {"x": 16/2, "y": 9/2}
         this.velocity = {"x": 0, "y": 0}
+
+        this.stack = 5
+
         this.speed = 0.1
         this.deceleration = 0.25
     }
     update(delta) {
+        if(Keyb.wasJustPressed("<space>")) {
+            Index.model.game.add(new Projectile({
+                "velocity": {"x": 0, "y": -0.5},
+                "position": this.position,
+            }))
+        }
+
         if(Keyb.isPressed("W")
         || Keyb.isPressed("<up>")) {
             this.velocity.y = -1 * this.speed * delta.f

@@ -20,7 +20,7 @@ export default class Audiomix {
             LocalStorage.set("musicPlaying", this.musicPlaying)
         }
 
-        this.playMusic()
+        // this.playMusic()
     }
     playMusic() {
         this.music = music["trouble"]

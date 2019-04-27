@@ -2,13 +2,15 @@ import Preact from "preact"
 import Index from "index.js"
 
 import "views/game/Game.view.less"
-import Player from "views/game/Player.view.js"
+import Entity from "views/game/Entity.view.js"
 
 export default class Game {
     render() {
         return (
             <div class="Game">
-                <Player/>
+                {Object.values(Index.model.game.entities).map((entity) => (
+                    <Entity entity={entity}/>
+                ))}
             </div>
         )
     }
