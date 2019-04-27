@@ -4,8 +4,8 @@ import Game from "models/Game.js"
 import Audiomix from "models/Audiomix.js"
 
 export default class Mount {
-    constructor(model = {}) {
-        this.title = model.title || "LD44"
+    constructor() {
+        this.title = "Heartslingers II"
 
         this.audio = new Audiomix()
 

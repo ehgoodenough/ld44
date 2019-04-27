@@ -2,6 +2,7 @@ import Preact from "preact"
 import Index from "index"
 
 import "views/screens/GameScreen.view.less"
+import Game from "views/game/Game.view.js"
 import Link from "views/Link.view.js"
 
 export default class GameScreen {
@@ -9,6 +10,7 @@ export default class GameScreen {
         return (
             <div class="GameScreen" onClick={this.onClick}>
                 <PauseMenu/>
+                <Game/>
             </div>
         )
     }
