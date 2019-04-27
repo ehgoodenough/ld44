@@ -36,11 +36,12 @@ export default class Projectile {
         if(this.affiliation == "baddies") {
             const goodie = Index.model.game.player
             const distance = getDistance(this.position, goodie.position)
-            if(goodie.isDamaged == 0
-            && goodie.isDead != true
-            && distance < goodie.width * 0.5) {
+            if(goodie.isDead != true
+            && distance < goodie.width * 0.33) {
                 Index.model.game.remove(this)
-                goodie.beHit(this)
+                if(goodie.isDamaged == 0) {
+                    goodie.beHit(this)
+                }
             }
         } else if(this.affiliation == "goodies") {
             Object.values(Index.model.game.baddies).find((baddie) => {
