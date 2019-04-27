@@ -1,14 +1,15 @@
 import Index from "index"
+import clonedeep from "lodash.clonedeep"
 
 import Projectile from "models/Projectile.js"
 import Heart from "models/Heart.js"
 
 export default class Turret {
-    constructor() {
+    constructor(turret) {
         this.width = 1
         this.height = 1
 
-        this.position = {"x": 16/2, "y": 9/2}
+        this.position = clonedeep(turret.position)
         this.rotation = Math.PI / 2
         this.velocityRotation = 0
         this.targetRotation = 0
@@ -35,15 +36,15 @@ export default class Turret {
     }
     update(delta) {
         if(this.isDead == true) {
-            if(this.opacity > 0) {
-                this.opacity -= 0.06 * delta.f
-                if(this.opacity < 0) {
-                    this.opacity = 0
-                }
-                this.width += 0.25 * delta.f
-                this.height += 0.25 * delta.f
-                this.rotation += (Math.PI / 32) * delta.f
-            }
+            // if(this.opacity > 0) {
+            //     this.opacity -= 0.06 * delta.f
+            //     if(this.opacity < 0) {
+            //         this.opacity = 0
+            //     }
+            //     this.width += 0.25 * delta.f
+            //     this.height += 0.25 * delta.f
+            //     this.rotation += (Math.PI / 32) * delta.f
+            // }
             return
         }
         if(this.isShooting == false) {

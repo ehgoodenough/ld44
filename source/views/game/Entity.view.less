@@ -9,4 +9,19 @@
     position: absolute;
 
     background-color: @yellow;
+
+    // animation-name: isDead;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes isDead {
+    0% {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(360deg) scale(2);
+    }
 }

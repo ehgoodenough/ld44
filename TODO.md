@@ -9,6 +9,10 @@ Sunday: Polish!
 - Juice - Everything feels good
 
 To Do For Polish:
+- The hearts you lose on hit should be shot out of you and fade away.
+- Turrets should be renamed to baddies.
+- Players shouldn't be able to shoot your final heart.
+- The hearts ui should list how many hearts you have exactly.
 - The hearts should float towards you if you're near them.
 - The hearts should beat to the music.
 - Add icons to the electron build.

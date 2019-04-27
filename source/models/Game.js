@@ -9,7 +9,9 @@ export default class Game {
         this.entities = {}
 
         this.add(this.player = new Player())
-        this.add(new Turret())
+        this.add(new Turret({
+            "position": {"x": 16 * 0.75, "y": 9 * 0.5}
+        }))
     }
     update(delta) {
         if(Keyb.wasJustPressed("<escape>")) {

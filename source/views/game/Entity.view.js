@@ -21,6 +21,7 @@ export default class Entity {
             "transform": "rotate(" + (this.props.entity.rotation || 0) + "rad)",
             "background-color": this.props.entity.color,
             "opacity": this.props.entity.opacity,
+            "animation-name": this.props.entity.isDead ? "isDead" : "",
         }
     }
 }

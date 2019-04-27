@@ -21,10 +21,21 @@ export default class Player {
 
         this.isDamaged = 0
 
-        this.hearts = 1
+        this.hearts = 10
     }
     update(delta) {
+        if(this.isDead === true) {
+            this.isDeadTimer -= delta.ms
+            if(this.isDeadTimer <= 0) {
+                Index.model.startGame()
+            }
+            return
+        }
         if(Keyb.wasJustPressed("<space>")) {
+            this.hearts -= 1
+            if(this.hearts <= 0) {
+                this.die()
+            }
             Index.model.game.add(new Projectile({
                 "rotation": 0,
                 "position": this.position,
@@ -84,6 +95,16 @@ export default class Player {
     beHit(projectile) {
         this.isDamaged = 1500
         this.hearts -= projectile.hearts || 1
+
+        // TODO: show the hearts being shot out of you
+
+        if(this.hearts <= 0) {
+            this.die()
+        }
+    }
+    die() {
+        this.isDead = true
+        this.isDeadTimer = 1000
     }
     pickupHeart() {
         this.hearts += 1
