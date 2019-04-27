@@ -1,20 +1,17 @@
 import Index from "index"
+import clonedeep from "lodash.clonedeep"
 
 const WHITE = "#FFF"
 
 export default class Projectile {
     constructor(projectile) {
-        this.width = 0.25
-        this.height = 0.25
+        this.width = 0.5
+        this.height = 0.5
 
-        this.position = {
-            "x": projectile.position.x,
-            "y": projectile.position.y,
-        }
-        this.velocity = {
-            "x": projectile.velocity.x,
-            "y": projectile.velocity.y,
-        }
+        this.position = clonedeep(projectile.position)
+        this.velocity = clonedeep(projectile.velocity)
+
+        this.affiliation = projectile.affiliation
 
         this.color = WHITE
     }

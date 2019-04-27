@@ -18,6 +18,7 @@ export default class Entity {
             "height": (this.props.entity.height || 1) + "em",
             "margin-top": (this.props.entity.height || 1) / -2 + "em",
             "margin-left": (this.props.entity.width || 1) / -2 + "em",
+            "transform": "rotate(" + (this.props.entity.rotation || 0) + "rad)",
             "background-color": this.props.entity.color,
         }
     }

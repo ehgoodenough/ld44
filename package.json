@@ -41,6 +41,7 @@
   "dependencies": {
     "keyb": "^1.2.0",
     "local-storage-json": "^1.0.0",
+    "lodash.clonedeep": "^4.5.0",
     "poin": "^1.0.2",
     "preact": "^8.4.2",
     "shortid": "^2.2.14",

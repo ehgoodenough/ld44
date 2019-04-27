@@ -24,6 +24,7 @@ export default class Player {
             Index.model.game.add(new Projectile({
                 "velocity": {"x": 0, "y": -0.5},
                 "position": this.position,
+                "affiliation": "goodies",
             }))
         }
 
