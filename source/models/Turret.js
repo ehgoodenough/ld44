@@ -1,6 +1,7 @@
 import Index from "index"
 
 import Projectile from "models/Projectile.js"
+import Heart from "models/Heart.js"
 
 export default class Turret {
     constructor() {
@@ -26,7 +27,8 @@ export default class Turret {
 
         this.group = "baddies"
 
-        this.health = 10
+        this.maxhealth = 5
+        this.health = this.maxhealth
         this.opacity = 1
 
         this.shake = {"x": 0, "y": 0}
@@ -45,7 +47,7 @@ export default class Turret {
             return
         }
         if(this.isShooting == false) {
-            this.targetRotation = getRotation(Index.model.game.player.position, this.position)
+            this.targetRotation = getRotation(this.position, Index.model.game.player.position)
 
             let min = Math.min(this.targetRotation, this.rotation)
             let max = Math.max(this.targetRotation, this.rotation)
@@ -132,7 +134,7 @@ export default class Turret {
             this.shake.y = 0
         }
 
-        // this.timer -= delta.s
+        this.timer -= delta.s
         if(this.timer <= 0) {
             if(this.isShooting == false) {
                 this.isShooting = true
@@ -159,8 +161,17 @@ export default class Turret {
     beHit(projectile) {
         this.isDamaged = 100
         this.health -= 1
+        this.width += 0.1
+        this.height += 0.1
         if(this.health <= 0) {
             this.isDead = true
+
+            // TODO: drop new heart container?
+            for(let i = 0; i < this.maxhealth; i += 1) {
+                Index.model.game.add(new Heart({
+                    "position": this.position,
+                }))
+            }
         }
     }
     get color() {

@@ -11,7 +11,7 @@ export default class Player {
         this.width = 1
         this.height = 1
 
-        this.position = {"x": 16 * 0.75, "y": 9 * 0.75}
+        this.position = {"x": 16 * 0.25, "y": 9 * 0.5}
         this.velocity = {"x": 0, "y": 0}
 
         this.stack = 5
@@ -20,6 +20,8 @@ export default class Player {
         this.deceleration = 0.25
 
         this.isDamaged = 0
+
+        this.hearts = 1
     }
     update(delta) {
         if(Keyb.wasJustPressed("<space>")) {
@@ -81,6 +83,10 @@ export default class Player {
     }
     beHit(projectile) {
         this.isDamaged = 1500
+        this.hearts -= projectile.hearts || 1
+    }
+    pickupHeart() {
+        this.hearts += 1
     }
     get color() {
         return "#DEB74A"

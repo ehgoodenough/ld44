@@ -13,7 +13,7 @@ export default class Projectile {
         this.speed = projectile.speed || 0.5
         this.rotation = projectile.rotation || 0
         this.position = clonedeep(projectile.position)
-        
+
         this.velocity = {}
         this.velocity.x = Math.cos(this.rotation) * this.speed
         this.velocity.y = Math.sin(this.rotation) * this.speed
@@ -37,7 +37,7 @@ export default class Projectile {
             const goodie = Index.model.game.player
             const distance = getDistance(this.position, goodie.position)
             if(goodie.isDamaged == 0
-            && distance < this.width) {
+            && distance < goodie.width * 0.5) {
                 Index.model.game.remove(this)
                 goodie.beHit(this)
             }
@@ -45,7 +45,7 @@ export default class Projectile {
             Object.values(Index.model.game.baddies).find((baddie) => {
                 const distance = getDistance(this.position, baddie.position)
                 if(baddie.isDead != true
-                && distance < this.width) {
+                && distance < baddie.width * 0.66) {
                     Index.model.game.remove(this)
                     baddie.beHit(this)
                 }

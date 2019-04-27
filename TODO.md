@@ -9,6 +9,8 @@ Sunday: Polish!
 - Juice - Everything feels good
 
 To Do For Polish:
+- The hearts should float towards you if you're near them.
+- The hearts should beat to the music.
 - Add icons to the electron build.
 - Add keyboard support to the screens.
 - Add url/history/back-button support to the screens?
