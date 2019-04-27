@@ -1,20 +1,12 @@
-Friday: Basics!
-- Player Movement
-- Locked Projectile Shooting
-- Static Turrets with Projectile Patterns
-- Is this fun to play?
-Saturday: Experiments!
+To Do:
+- Fix the turrets when rotating from 360deg to 0deg.
 - Voxel World Design and Collision like Jackal?
-- Platformer Shmup like Cowboyana?
-- Twin-Stick/Mouse Aiming like Nuclear Thrones?
+
 Sunday: Polish!
 - Aesthetics - Everything looks good
 - Content - Everything is long enough
 - UI/UX - Everything flows well
 - Juice - Everything feels good
-
-To Do For Bugs:
-- Fix the turrets when rotating from 360deg to 0deg.
 
 To Do For Polish:
 - Add icons to the electron build.

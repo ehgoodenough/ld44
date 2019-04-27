@@ -11,6 +11,9 @@ export default class Turret {
         this.rotation = Math.PI / 2
         this.velocityRotation = 0
         this.targetRotation = 0
+        this.maxVelocityRotation = 2
+        this.minVelocityRotation = 0.001
+        this.rotationSpeed = 32
 
         this.stack = 5
 
@@ -42,23 +45,79 @@ export default class Turret {
             return
         }
         if(this.isShooting == false) {
-            this.targetRotation = getRotation(this.position, Index.model.game.player.position)
-            if(this.rotation < this.targetRotation) {
-                this.velocityRotation += (this.targetRotation - this.rotation) / 32
+            this.targetRotation = getRotation(Index.model.game.player.position, this.position)
+
+            let min = Math.min(this.targetRotation, this.rotation)
+            let max = Math.max(this.targetRotation, this.rotation)
+            let clockwise = max - min
+            let counterclockwise = (Math.PI - max) - ((-1 * Math.PI) - min)
+
+            // console.log(
+            //     Math.round(clockwise * (180/Math.PI)),
+            //     Math.round(counterclockwise * (180/Math.PI)),
+            //     (this.rotation * (180/Math.PI)).toFixed(2),
+            //     (this.targetRotation * (180/Math.PI)).toFixed(2),
+            // )
+
+            if(clockwise < counterclockwise) {
+                this.velocityRotation += (this.targetRotation - this.rotation) / this.rotationSpeed
+            } else {
+                this.velocityRotation -= (this.rotation - this.targetRotation) / this.rotationSpeed
             }
-            if(this.rotation > this.targetRotation) {
-                this.velocityRotation -= (this.rotation - this.targetRotation) / 32
-            }
+
+            // let clockwise = Math.min(...[
+            //     Math.abs(this.rotation - this.targetRotation),
+            //     Math.abs((this.rotation + (Math.PI / 2)) - this.targetRotation),
+            // ])
+            // let counterclockwise = Math.min(...[
+            //     Math.abs(this.targetRotation - this.rotation),
+            //     Math.abs(this.targetRotation - (this.rotation + (Math.PI / 2))),
+            // ])
+            //
+            // if(clockwise > counterclockwise) {
+            //     this.velocityRotation += (this.targetRotation - this.rotation) / this.rotationSpeed
+            // } else {
+            //     this.velocityRotation -= (this.rotation - this.targetRotation) / this.rotationSpeed
+            // }
+
+            // if(this.rotation < this.targetRotation) {
+            //     this.velocityRotation += (this.targetRotation - this.rotation) / this.rotationSpeed
+            // }
+            // if(this.rotation > this.targetRotation) {
+            //     this.velocityRotation -= (this.rotation - this.targetRotation) / this.rotationSpeed
+            // }
+
+            // if(Math.abs(this.rotation - this.targetRotation) < Math.PI * 1) {
+            //     // do regular tracking
+            //     if(this.rotation < this.targetRotation) {
+            //         this.velocityRotation += (this.targetRotation - this.rotation) / this.rotationSpeed
+            //     } else {
+            //         this.velocityRotation -= (this.rotation - this.targetRotation) / this.rotationSpeed
+            //     }
+            // } else {
+            //     let wrappedTargetRotation = 0
+            //     // wrap the goal angle
+            //     if(this.targetRotation > Math.PI * 1.5) {
+            //         wrappedTargetRotation = this.targetRotation - (Math.PI * 2)
+            //     } else if (this.targetRotation < Math.PI * 0.5) {
+            //         wrappedTargetRotation = this.targetRotation + (Math.PI * 2)
+            //     }
+            //     // and track the wrapped angle
+            //     if(this.rotation < wrappedTargetRotation) {
+            //         this.velocityRotation += (this.targetRotation - this.rotation) / this.rotationSpeed
+            //     } else {
+            //         this.velocityRotation -= (this.rotation - this.targetRotation) / this.rotationSpeed
+            //     }
+            // }
+
 
             this.rotation += this.velocityRotation
-
             this.velocityRotation -= this.velocityRotation * this.deceleration
+            this.velocityRotation = Math.min(Math.max(this.velocityRotation, -1 * this.maxVelocityRotation), +1 * this.maxVelocityRotation)
 
-            if(this.velocityRotation > +1) {
-                this.velocityRotation = +1
-            }
-            if(this.velocityRotation < -1) {
-                this.velocityRotation = -1
+            if(this.velocityRotation < +1 * this.minVelocityRotation
+            && this.velocityRotation > -1 * this.minVelocityRotation) {
+                this.velocityRotation = 0
             }
         }
 
@@ -73,7 +132,7 @@ export default class Turret {
             this.shake.y = 0
         }
 
-        this.timer -= delta.s
+        // this.timer -= delta.s
         if(this.timer <= 0) {
             if(this.isShooting == false) {
                 this.isShooting = true

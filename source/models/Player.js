@@ -11,7 +11,7 @@ export default class Player {
         this.width = 1
         this.height = 1
 
-        this.position = {"x": 16/2, "y": 9/4}
+        this.position = {"x": 16 * 0.75, "y": 9 * 0.75}
         this.velocity = {"x": 0, "y": 0}
 
         this.stack = 5
