@@ -20,6 +20,7 @@ export default class Entity {
             "margin-left": (this.props.entity.width || 1) / -2 + "em",
             "transform": "rotate(" + (this.props.entity.rotation || 0) + "rad)",
             "background-color": this.props.entity.color,
+            "opacity": this.props.entity.opacity || 1,
         }
     }
 }

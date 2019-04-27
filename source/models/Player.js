@@ -18,6 +18,8 @@ export default class Player {
 
         this.speed = 0.1
         this.deceleration = 0.25
+
+        this.isDamaged = 0
     }
     update(delta) {
         if(Keyb.wasJustPressed("<space>")) {
@@ -26,6 +28,13 @@ export default class Player {
                 "position": this.position,
                 "affiliation": "goodies",
             }))
+        }
+
+        if(this.isDamaged > 0) {
+            this.isDamaged -= delta.ms
+            if(this.isDamaged < 0) {
+                this.isDamaged = 0
+            }
         }
 
         if(Keyb.isPressed("W")
@@ -71,6 +80,15 @@ export default class Player {
         }
     }
     beHit(projectile) {
-        console.log("!")
+        this.isDamaged = 1500
+    }
+    get color() {
+        return "#DEB74A"
+    }
+    get opacity() {
+        if(this.isDamaged > 0
+        && Math.floor(Index.model.timer) % 3 == 0) {
+            return 0.25
+        }
     }
 }
