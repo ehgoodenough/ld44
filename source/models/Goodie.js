@@ -19,7 +19,7 @@ export default class Goodie {
         this.size.x = 0.5
         this.size.y = 0.5
 
-        this.anchor = {"x": 0.5, "y": 1}
+        this.anchor = {"x": 0, "y": 1}
 
         // this.image = require("images/red.cowboy.body.png")
 
@@ -36,7 +36,7 @@ export default class Goodie {
         this.levelnum = 0
         this.mode = "parachuting"
 
-        this.position = {"x": 16 * 0.25, "y": 9 * 0.5}
+        this.position = {"x": 7.75, "y": 0}
         this.velocity = {x: 0, y: 0}
         this.acceleration = {x: 0.075, y: 0.275}
         this.deceleration = 0.25

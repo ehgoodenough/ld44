@@ -11,7 +11,7 @@ export default class TitleScreen {
             <div class="TitleScreen">
                 <section class="MenuSection">
                     <div class="Title">
-                        <h1>Heartslingers II</h1>
+                        <h1>{Index.model.title}</h1>
                         <h2>A game for Ludum Dare 44.</h2>
                     </div>
                     <div class="Links">
