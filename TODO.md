@@ -3,7 +3,6 @@ Bugs:
 - Fixed the link in the pause menu.
 
 Polish:
-- Auto-scroll the camera.
 - Place the baddies in the world.
 - End screen with results, and options to restart or return to title screen.
 - Cryptic dialogue cutscene explaining hearts-as-projectiles.

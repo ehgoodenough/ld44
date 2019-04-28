@@ -35,19 +35,18 @@ export default class World {
     }
 }
 
-const UNIT = 10 // 32
-const OFFSET = UNIT/4 // 8
-// const BUFFER = 360 - (((2 + 2 + 2) * UNIT) + OFFSET + OFFSET)
-const BUFFER = 1
-const GUI_SIZE = 12
+const UNIT = 1
+const OFFSET_BETWEEN_LEVELS = UNIT * 0.25
+const BUFFER = 1 // 360 - (((2 + 2 + 2) * UNIT) + OFFSET_BETWEEN_LEVELS + OFFSET_BETWEEN_LEVELS)
+const OFFSET_WITH_TOP_OF_FRAME = UNIT * 1.25
 
-const FRAME_WIDTH = 160
+const FRAME_WIDTH = 16
 
 class Level {
     constructor(level) {
         this.color = level.color
         this.number = level.number
-        this.speed = ((this.number * 2) + 3) / 30
+        this.speed = ((this.number * 2) + 3) / 300
 
         this.points = new Array()
         while(this.points.length < 21) {
@@ -57,8 +56,8 @@ class Level {
     addAnotherPoint() {
         if(this.points.length == 0) {
             var y = this.number * 2 * UNIT
-            y += GUI_SIZE
-            y += this.number * OFFSET
+            y += OFFSET_WITH_TOP_OF_FRAME
+            y += this.number * OFFSET_BETWEEN_LEVELS
             y += BUFFER / 2
             y += UNIT
             this.points.push({

@@ -3,13 +3,15 @@ import Index from "index"
 
 import "views/game/World.view.less"
 
-const FRAME_WIDTH = 160
-const FRAME_HEIGHT = 90
+const FRAME_WIDTH = 16
+const FRAME_HEIGHT = 9
+const UNIT = 10
 
 export default class World {
     render() {
         return (
-            <svg class="World" style={this.style} viewBox="0 0 160 90">
+            <svg class="World" style={this.style}
+                viewBox={"0 0" + " " + (FRAME_WIDTH * UNIT) + " " + FRAME_HEIGHT * UNIT}>
                 <Sun color={Index.model.game.world.colors[4]}/>
                 {Object.values(Index.model.game.world.levels).map((level) => (
                     <Level level={level}/>
@@ -48,7 +50,7 @@ class Level {
         ])
 
         return points.map((point) => {
-            return point.x + "," + point.y
+            return (point.x * UNIT) + "," + (point.y * UNIT)
         }).join(" ")
     }
 }
