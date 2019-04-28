@@ -1,3 +1,5 @@
+import seedrandom from "seedrandom"
+
 const COLORS = [
     "#8287C1 #75696D #463339 #222222 #E0F1E1".split(" "), //blue and gray
     "#5B749E #798A5D #45532D #222222 #DFE8F0".split(" "), //blue and green
@@ -10,9 +12,11 @@ const COLORS = [
     "#C4F776 #80B080 #425A44 #222222".split(" "), //green and green
 ]
 
+seedrandom("ld44.", {"global": true})
+
 export default class World {
     constructor(world = {}) {
-        this.colors = world.colors || COLORS[0]
+        this.colors = world.colors || COLORS[2]
 
         this.levels = []
         for(let number = 0; number < 3; number += 1) {
@@ -43,7 +47,7 @@ class Level {
     constructor(level) {
         this.color = level.color
         this.number = level.number
-        this.speed = ((this.number * 2) + 3) / 10
+        this.speed = ((this.number * 2) + 3) / 30
 
         this.points = new Array()
         while(this.points.length < 21) {
@@ -142,7 +146,7 @@ class Level {
     }
     update(delta) {
         for(var index in this.points) {
-            this.points[index].x -= this.speed
+            this.points[index].x -= this.speed * delta.f
         }
 
         if(this.points[1].x < 0) {

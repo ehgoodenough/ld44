@@ -27,6 +27,8 @@ export default class Game {
         Object.values(this.entities).forEach((entity) => {
             entity.update(delta)
         })
+
+        this.world.update(delta)
     }
     add(entity) {
         entity.id = entity.id || Id.generate()

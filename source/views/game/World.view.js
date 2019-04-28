@@ -27,7 +27,7 @@ export default class World {
 class Sun {
     render() {
         return (
-            <circle cx="480" cy="140" r="100" fill={this.props.color}/>
+            <circle cx="60" cy="25" r="20" fill={this.props.color}/>
         )
     }
 }

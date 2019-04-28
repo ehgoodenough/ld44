@@ -3,13 +3,14 @@ Bugs:
 - Fixed the link in the pause menu.
 
 Polish:
-- Moving in a level + auto-scrolling camera.
-- Baddies placed in world.
+- Auto-scroll the camera.
+- Place the baddies in the world.
 - End screen with results, and options to restart or return to title screen.
 - Cryptic dialogue cutscene explaining hearts-as-projectiles.
 Art:
 - The hearts should look like hearts, both as projectiles and pickups.
 - The goodies and baddies should have cowboyana-style sprites.
+- Decorate the world with cowboy stuff.
 POLISH
 - The hearts ui should list how many hearts you have exactly.
 - Projectiles do not leave the frame. Projectiles return to you after you shoot them? Projectiles float towards you if you're not shooting.
