@@ -2,7 +2,8 @@ Bugs:
 - Fix the turrets when rotating from 360deg to 0deg.
 - Fix the link in the pause menu.
 - Fix a super-jump when jumping just after ledge-grabbing.
-- Fix gimpy dropping when on an upwards slope -> /
+- Fix gimpy dropping when on slopes
+- Hitting down while in the air sometimes snaps you to the level?
 
 JUICE
 - Cryptic dialogue cutscene explaining hearts-as-projectiles

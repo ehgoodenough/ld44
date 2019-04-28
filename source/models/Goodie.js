@@ -21,6 +21,8 @@ export default class Goodie {
 
         this.anchor = {"x": 0.5, "y": 1}
 
+        // this.image = require("images/red.cowboy.body.png")
+
         this.stack = 5
 
         // this.position = {"x": 16 * 0.25, "y": 9 * 0.5}
