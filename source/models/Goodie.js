@@ -4,9 +4,8 @@ import Index from "index"
 import Projectile from "models/Projectile.js"
 
 const UNIT = 1
-const FRICTION = 0.5
-const VERTICALITY = 1 // 10
-const GRAVITY = 0.9
+const VERTICALITY = 0.33 // 10
+const GRAVITY = 0.03
 const MAX_GRAVITY = 8
 const MAX_FALL_DISTANCE = UNIT * 1.9
 const EQUIPMENT_SPEED = 0.9
@@ -26,7 +25,7 @@ export default class Goodie {
         // this.position = {"x": 16 * 0.25, "y": 9 * 0.5}
         // this.velocity = {"x": 0, "y": 0}
         // this.speed = 0.1
-        // this.deceleration = 0.25
+
         this.isDamaged = 0
         this.hearts = 10
 
@@ -36,7 +35,8 @@ export default class Goodie {
 
         this.position = {"x": 16 * 0.25, "y": 9 * 0.5}
         this.velocity = {x: 0, y: 0}
-        this.acceleration = {x: 0.05, y: 0.1}
+        this.acceleration = {x: 0.075, y: 0.275}
+        this.deceleration = 0.25
         this.jumpdist = 0
 
         this.equipment = {
@@ -45,10 +45,36 @@ export default class Goodie {
         }
     }
     update(delta) {
+        if(this.isDead === true) {
+            this.isDeadTimer -= delta.ms
+            if(this.isDeadTimer <= 0
+            || this.isDeadTimer <= 1500 && Keyb.wasJustPressed("<space>")) {
+                Index.model.startGame()
+            }
+            return
+        }
+        if(this.isDamaged > 0) {
+            this.isDamaged -= delta.ms
+            if(this.isDamaged < 0) {
+                this.isDamaged = 0
+            }
+        }
+        if(Keyb.wasJustPressed("<space>")) {
+            this.hearts -= 1
+            if(this.hearts <= 0) {
+                this.die()
+            }
+            Index.model.game.add(new Projectile({
+                "rotation": 0,
+                "position": this.position,
+                "affiliation": "goodies",
+            }))
+        }
+
         if(this.position.x - Index.model.game.world.levels[this.levelnum].speed > 0) {
             this.position.x -= Index.model.game.world.levels[this.levelnum].speed
         } else if(Index.model.game.world.levels[this.levelnum].y(this.position.x) - this.position.y < -VERTICALITY) {
-            console.log("DIED") // this.stage.mode = "died"
+            this.die()
         }
 
         const upWasJustPressed = (Keyb.wasJustPressed("<up>") || Keyb.wasJustPressed("W"))
@@ -151,8 +177,8 @@ export default class Goodie {
             this.position.y = level.y(this.position.x + this.velocity.x) + (this.mode == "on ledge" ? this.height : 0)
             if(["jumping", "falling", "dropping"].indexOf(this.mode) != -1) {
                 if(this.position.y - this.jumpdist >= MAX_FALL_DISTANCE) {
-                    console.log("DIED")
-                    // this.stage.mode = "died"
+                    // console.log("DIED") // this.stage.mode = "died"
+                    // this.die()
                 }
             }
             this.velocity.y = 0
@@ -171,76 +197,8 @@ export default class Goodie {
         }
 
         // deceleration
-        this.velocity.x = 0
+        this.velocity.x -= this.velocity.x * this.deceleration
     }
-    // update(delta) {
-    //     if(this.isDead === true) {
-    //         this.isDeadTimer -= delta.ms
-    //         if(this.isDeadTimer <= 0
-    //         || this.isDeadTimer <= 1500 && Keyb.wasJustPressed("<space>")) {
-    //             Index.model.startGame()
-    //         }
-    //         return
-    //     }
-    //     if(Keyb.wasJustPressed("<space>")) {
-    //         this.hearts -= 1
-    //         if(this.hearts <= 0) {
-    //             this.die()
-    //         }
-    //         Index.model.game.add(new Projectile({
-    //             "rotation": 0,
-    //             "position": this.position,
-    //             "affiliation": "goodies",
-    //         }))
-    //     }
-    //
-    //     if(this.isDamaged > 0) {
-    //         this.isDamaged -= delta.ms
-    //         if(this.isDamaged < 0) {
-    //             this.isDamaged = 0
-    //         }
-    //     }
-    //
-    //     if(Keyb.isPressed("W")
-    //     || Keyb.isPressed("<up>")) {
-    //         this.velocity.y = -1 * this.speed * delta.f
-    //     }
-    //     if(Keyb.isPressed("S")
-    //     || Keyb.isPressed("<down>")) {
-    //         this.velocity.y = +1 * this.speed * delta.f
-    //     }
-    //     if(Keyb.isPressed("A")
-    //     || Keyb.isPressed("<left>")) {
-    //         this.velocity.x = -1 * this.speed * delta.f
-    //     }
-    //     if(Keyb.isPressed("D")
-    //     || Keyb.isPressed("<right>")) {
-    //         this.velocity.x = +1 * this.speed * delta.f
-    //     }
-    //     // if(this.position.x + this.velocity.x < 0
-    //     // || this.position.x + this.velocity.x > FRAME_WIDTH) {
-    //     //     this.velocity.x = 0
-    //     // }
-    //     // if(this.position.y + this.velocity.y < 0
-    //     // || this.position.y + this.velocity.y > FRAME_HEIGHT) {
-    //     //     this.velocity.y = 0
-    //     // }
-    //
-    //     this.position.x += this.velocity.x
-    //     this.position.y += this.velocity.y
-    //
-    //     this.velocity.x -= this.velocity.x * this.deceleration
-    //     this.velocity.y -= this.velocity.y * this.deceleration
-    //
-    //     if(this.velocity.x < +0.001
-    //     && this.velocity.x > -0.001) {
-    //         this.velocity.x = 0
-    //     }
-    //     if(this.velocity.y < +0.001
-    //     && this.velocity.y > -0.001) {
-    //         this.velocity.y = 0
-    //     }
-    // }
     beHit(projectile) {
         this.isDamaged = 1500
         this.hearts -= projectile.hearts || 1
@@ -297,7 +255,6 @@ export default class Goodie {
 // }
 
 // ehgoodenoughs:
-// - deceleration doesn't use friction
 // - collision resolution doesn't push against collision
 // - velocity is not preserved during acceleration
 // - gravity is always applying, even when not necessary

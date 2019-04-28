@@ -12,11 +12,11 @@ const COLORS = [
     "#C4F776 #80B080 #425A44 #222222".split(" "), //green and green
 ]
 
-seedrandom("ld44.", {"global": true})
-
 export default class World {
     constructor(world = {}) {
         this.colors = world.colors || COLORS[2]
+
+        seedrandom("ld44.", {"global": true})
 
         this.levels = []
         for(let number = 0; number < 3; number += 1) {
