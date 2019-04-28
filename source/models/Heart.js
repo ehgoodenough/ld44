@@ -5,8 +5,9 @@ const WHITE = "#FFF"
 
 export default class Heart {
     constructor(heart) {
-        this.width = 0.5
-        this.height = 0.5
+        this.size = {}
+        this.size.x = 0.5
+        this.size.y = 0.5
 
         this.position = clonedeep(heart.position)
 
@@ -38,24 +39,24 @@ export default class Heart {
 
         // const FRAME_WIDTH = 16
         // const FRAME_HEIGHT = 9
-        // if(this.position.x < 0 - this.width
-        // || this.position.y < 0 - this.height
-        // || this.position.x > FRAME_WIDTH + this.width
-        // || this.position.y > FRAME_HEIGHT + this.height) {
+        // if(this.position.x < 0 - this.size.x
+        // || this.position.y < 0 - this.size.y
+        // || this.position.x > FRAME_WIDTH + this.size.x
+        // || this.position.y > FRAME_HEIGHT + this.size.y) {
         //     Index.model.game.remove(this)
         // }
 
         const goodie = Index.model.game.player
         const distance = getDistance(this.position, goodie.position)
         if(goodie.isDamaged == 0
-        && distance < goodie.width * 0.66) {
+        && distance < goodie.size.x * 0.66) {
             Index.model.game.remove(this)
             goodie.pickupHeart(this)
         }
         Object.values(Index.model.game.baddies).find((baddie) => {
             const distance = getDistance(this.position, baddie.position)
             if(baddie.isDead != true
-            && distance < this.width) {
+            && distance < this.size.x) {
                 Index.model.game.remove(this)
                 baddie.beHit(this)
             }

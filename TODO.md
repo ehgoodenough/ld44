@@ -1,9 +1,10 @@
 Bugs:
 - Fix the turrets when rotating from 360deg to 0deg.
-- Fixed the link in the pause menu.
+- Fix the link in the pause menu.
+- Fix a super-jump when jumping just after ledge-grabbing.
+- Fix gimpy dropping when on an upwards slope -> /
 
 Polish:
-- Place the baddies in the world.
 - End screen with results, and options to restart or return to title screen.
 - Cryptic dialogue cutscene explaining hearts-as-projectiles.
 Art:
@@ -15,6 +16,7 @@ POLISH
 - Projectiles do not leave the frame. Projectiles return to you after you shoot them? Projectiles float towards you if you're not shooting.
 - Leveling up your weapon with each wave.
 - End with a boss!!
+- Equipment like parachute/rope?
 JUICE
 - A sound should play when entities get hit, shoot, pickup hearts, explode.
 - The hearts you lose on hit should be shot out of you and fade away.

@@ -15,8 +15,9 @@ const FRAME_HEIGHT = 9
 
 export default class Goodie {
     constructor() {
-        this.width = 0.5
-        this.height = 0.5
+        this.size = {}
+        this.size.x = 0.5
+        this.size.y = 0.5
 
         this.anchor = {"x": 0.5, "y": 1}
 
@@ -60,10 +61,10 @@ export default class Goodie {
             }
         }
         if(Keyb.wasJustPressed("<space>")) {
-            this.hearts -= 1
-            if(this.hearts <= 0) {
-                this.die()
-            }
+            // this.hearts -= 1
+            // if(this.hearts <= 0) {
+            //     this.die()
+            // }
             Index.model.game.add(new Projectile({
                 "rotation": 0,
                 "position": this.position,
@@ -163,18 +164,18 @@ export default class Goodie {
             }
         }
         if(this.mode == "hiking"
-        && this.position.y - this.height < Index.model.game.world.levels[this.levelnum].y(this.position.x + this.velocity.x)) {
+        && this.position.y - this.size.y < Index.model.game.world.levels[this.levelnum].y(this.position.x + this.velocity.x)) {
             this.mode = "on ledge"
         }
         if(((this.mode == "jumping" && this.velocity.y > 0))
-        && this.levelnum > 0 && this.position.y - this.height < Index.model.game.world.levels[this.levelnum - 1].y(this.position.x + this.velocity.x)
-        && level.y(this.position.x + this.velocity.x) - Index.model.game.world.levels[this.levelnum - 1].y(this.position.x + this.velocity.x) > this.height) {
+        && this.levelnum > 0 && this.position.y - this.size.y < Index.model.game.world.levels[this.levelnum - 1].y(this.position.x + this.velocity.x)
+        && level.y(this.position.x + this.velocity.x) - Index.model.game.world.levels[this.levelnum - 1].y(this.position.x + this.velocity.x) > this.size.y) {
             this.mode = "on ledge"
             this.levelnum -= 1
         }
         if(this.velocity.y > 0
-        && this.position.y + this.velocity.y - (this.mode == "on ledge" ? this.height : 0) > level.y(this.position.x + this.velocity.x)) {
-            this.position.y = level.y(this.position.x + this.velocity.x) + (this.mode == "on ledge" ? this.height : 0)
+        && this.position.y + this.velocity.y - (this.mode == "on ledge" ? this.size.y : 0) > level.y(this.position.x + this.velocity.x)) {
+            this.position.y = level.y(this.position.x + this.velocity.x) + (this.mode == "on ledge" ? this.size.y : 0)
             if(["jumping", "falling", "dropping"].indexOf(this.mode) != -1) {
                 if(this.position.y - this.jumpdist >= MAX_FALL_DISTANCE) {
                     // console.log("DIED") // this.stage.mode = "died"
@@ -233,22 +234,22 @@ export default class Goodie {
 //     if(this.mode == "parachuting") {
 //         return {
 //             position: {
-//                 x: -1 * this.width,
-//                 y: -1 * (this.height + 8),
+//                 x: -1 * this.size.x,
+//                 y: -1 * (this.size.y + 8),
 //             },
-//             width: this.width * 3,
-//             height: this.height,
+//             size.x: this.size.x * 3,
+//             size.y: this.size.y,
 //             color: "orange",
 //         }
 //     } else if(this.mode == "hiking") {
-//         var distance = this.position.y - Index.model.game.world.levels[this.levelnum].y(this.position.x) - this.height
+//         var distance = this.position.y - Index.model.game.world.levels[this.levelnum].y(this.position.x) - this.size.y
 //         return {
 //             position: {
-//                 x: (this.width - 4) * 0.5,
+//                 x: (this.size.x - 4) * 0.5,
 //                 y: -1 * distance,
 //             },
-//             width: 4,
-//             height: distance,
+//             size.x: 4,
+//             size.y: distance,
 //             color: "white"
 //         }
 //     }

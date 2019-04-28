@@ -5,11 +5,15 @@ import Projectile from "models/Projectile.js"
 import Heart from "models/Heart.js"
 
 export default class Baddie {
-    constructor(turret) {
-        this.width = 1
-        this.height = 1
+    constructor(baddie) {
+        this.size = {}
+        this.size.x = 0.5
+        this.size.y = 0.5
 
-        this.position = clonedeep(turret.position)
+        this.anchor = {"x": 0.5, "y": 1}
+
+        this.levelnum = baddie.levelnum
+        this.position = clonedeep(baddie.position)
         this.rotation = Math.PI / 2
         this.velocityRotation = 0
         this.targetRotation = 0
@@ -35,18 +39,26 @@ export default class Baddie {
         this.shake = {"x": 0, "y": 0}
     }
     update(delta) {
+        const level = Index.model.game.world.levels[this.levelnum]
+        this.position.x -= level.speed
+        this.position.y = level.y(this.position.x)
         if(this.isDead == true) {
             // if(this.opacity > 0) {
             //     this.opacity -= 0.06 * delta.f
             //     if(this.opacity < 0) {
             //         this.opacity = 0
             //     }
-            //     this.width += 0.25 * delta.f
-            //     this.height += 0.25 * delta.f
+            //     this.size.x += 0.25 * delta.f
+            //     this.size.y += 0.25 * delta.f
             //     this.rotation += (Math.PI / 32) * delta.f
             // }
             return
         }
+        if(this.position.x < 0 - this.size.x) {
+            this.isDead = true
+            Index.model.game.remove(this)
+        }
+        // this.position.y = level.y(this.position.x)
         if(this.isShooting == false) {
             this.targetRotation = getRotation(this.position, Index.model.game.player.position)
 
@@ -223,18 +235,21 @@ export default class Baddie {
     beHit(projectile) {
         this.isDamaged = 100
         this.health -= 1
-        this.width += 0.1
-        this.height += 0.1
+        this.size.x += 0.1
+        this.size.y += 0.1
         if(this.health <= 0) {
-            this.isDead = true
-
-            // TODO: drop new heart container?
-            for(let i = 0; i < this.maxhealth; i += 1) {
-                Index.model.game.add(new Heart({
-                    "position": this.position,
-                }))
-            }
+            this.die()
         }
+    }
+    die() {
+        this.isDead = true
+
+        // TODO: drop new heart container?
+        // for(let i = 0; i < this.maxhealth; i += 1) {
+        //     Index.model.game.add(new Heart({
+        //         "position": this.position,
+        //     }))
+        // }
     }
     get color() {
         if(this.isDead != true) {

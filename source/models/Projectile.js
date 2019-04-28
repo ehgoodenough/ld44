@@ -5,12 +5,14 @@ const WHITE = "#FFF"
 
 export default class Projectile {
     constructor(projectile) {
-        this.width = 0.5
-        this.height = 0.5
+        this.size = {}
+        this.size.x = 0.5
+        this.size.y = 0.5
 
         this.speed = projectile.speed || 0.5
         this.rotation = projectile.rotation || 0
         this.position = clonedeep(projectile.position)
+        this.position.y -= 0.25
 
         this.velocity = {}
         this.velocity.x = Math.cos(this.rotation) * this.speed
@@ -24,20 +26,20 @@ export default class Projectile {
         this.position.x += this.velocity.x
         this.position.y += this.velocity.y
 
-        // const FRAME_WIDTH = 16
-        // const FRAME_HEIGHT = 9
-        // if(this.position.x < 0 - this.width
-        // || this.position.y < 0 - this.height
-        // || this.position.x > FRAME_WIDTH + this.width
-        // || this.position.y > FRAME_HEIGHT + this.height) {
-        //     Index.model.game.remove(this)
-        // }
+        const FRAME_WIDTH = 16
+        const FRAME_HEIGHT = 9
+        if(this.position.x < 0 - this.size.x
+        || this.position.y < 0 - this.size.y
+        || this.position.x > FRAME_WIDTH + this.size.x
+        || this.position.y > FRAME_HEIGHT + this.size.y) {
+            Index.model.game.remove(this)
+        }
 
         if(this.affiliation == "baddies") {
             const goodie = Index.model.game.player
             const distance = getDistance(this.position, goodie.position)
             if(goodie.isDead != true
-            && distance < goodie.width * 0.33) {
+            && distance < goodie.size.x * 0.75) {
                 Index.model.game.remove(this)
                 if(goodie.isDamaged == 0) {
                     goodie.beHit(this)
@@ -47,7 +49,7 @@ export default class Projectile {
             Object.values(Index.model.game.baddies).find((baddie) => {
                 const distance = getDistance(this.position, baddie.position)
                 if(baddie.isDead != true
-                && distance < baddie.width * 0.66) {
+                && distance < baddie.size.x * 0.75) {
                     Index.model.game.remove(this)
                     baddie.beHit(this)
                 }
