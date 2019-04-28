@@ -2,8 +2,6 @@ import Index from "index"
 import clonedeep from "lodash.clonedeep"
 
 const WHITE = "#FFF"
-const FRAME_WIDTH = 16
-const FRAME_HEIGHT = 9
 
 export default class Heart {
     constructor(heart) {
@@ -38,12 +36,14 @@ export default class Heart {
             this.velocity.y = 0
         }
 
-        if(this.position.x < 0 - this.width
-        || this.position.y < 0 - this.height
-        || this.position.x > FRAME_WIDTH + this.width
-        || this.position.y > FRAME_HEIGHT + this.height) {
-            Index.model.game.remove(this)
-        }
+        // const FRAME_WIDTH = 16
+        // const FRAME_HEIGHT = 9
+        // if(this.position.x < 0 - this.width
+        // || this.position.y < 0 - this.height
+        // || this.position.x > FRAME_WIDTH + this.width
+        // || this.position.y > FRAME_HEIGHT + this.height) {
+        //     Index.model.game.remove(this)
+        // }
 
         const goodie = Index.model.game.player
         const distance = getDistance(this.position, goodie.position)

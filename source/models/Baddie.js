@@ -4,7 +4,7 @@ import clonedeep from "lodash.clonedeep"
 import Projectile from "models/Projectile.js"
 import Heart from "models/Heart.js"
 
-export default class Turret {
+export default class Baddie {
     constructor(turret) {
         this.width = 1
         this.height = 1
@@ -196,7 +196,7 @@ export default class Turret {
             this.shake.y = 0
         }
 
-        // this.timer -= delta.s
+        this.timer -= delta.s
         if(this.timer <= 0) {
             if(this.isShooting == false) {
                 this.isShooting = true

@@ -2,20 +2,24 @@ import Keyb from "keyb"
 import Id from "shortid"
 
 import Player from "models/Player.js"
-import Turret from "models/Turret.js"
+import Baddie from "models/Baddie.js"
 
 export default class Game {
     constructor(game) {
         this.entities = {}
 
         this.add(this.player = new Player())
-        this.add(new Turret({
+        this.add(new Baddie({
             "position": {"x": 16 * 0.5, "y": 9 * 0.5}
         }))
     }
     update(delta) {
         if(Keyb.wasJustPressed("<escape>")) {
             this.isPaused = !this.isPaused
+        }
+
+        if(this.isPaused == true) {
+            return
         }
 
         Object.values(this.entities).forEach((entity) => {

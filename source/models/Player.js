@@ -1,9 +1,6 @@
 import Keyb from "keyb"
 import Index from "index"
 
-const FRAME_WIDTH = 16
-const FRAME_HEIGHT = 9
-
 import Projectile from "models/Projectile.js"
 
 export default class Player {
@@ -67,16 +64,17 @@ export default class Player {
         || Keyb.isPressed("<right>")) {
             this.velocity.x = +1 * this.speed * delta.f
         }
-
-        if(this.position.x + this.velocity.x < 0
-        || this.position.x + this.velocity.x > FRAME_WIDTH) {
-            this.velocity.x = 0
-        }
-
-        if(this.position.y + this.velocity.y < 0
-        || this.position.y + this.velocity.y > FRAME_HEIGHT) {
-            this.velocity.y = 0
-        }
+        
+        const FRAME_WIDTH = 16
+        const FRAME_HEIGHT = 9
+        // if(this.position.x + this.velocity.x < 0
+        // || this.position.x + this.velocity.x > FRAME_WIDTH) {
+        //     this.velocity.x = 0
+        // }
+        // if(this.position.y + this.velocity.y < 0
+        // || this.position.y + this.velocity.y > FRAME_HEIGHT) {
+        //     this.velocity.y = 0
+        // }
 
         this.position.x += this.velocity.x
         this.position.y += this.velocity.y

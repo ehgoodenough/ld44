@@ -2,8 +2,6 @@ import Index from "index"
 import clonedeep from "lodash.clonedeep"
 
 const WHITE = "#FFF"
-const FRAME_WIDTH = 16
-const FRAME_HEIGHT = 9
 
 export default class Projectile {
     constructor(projectile) {
@@ -26,12 +24,14 @@ export default class Projectile {
         this.position.x += this.velocity.x
         this.position.y += this.velocity.y
 
-        if(this.position.x < 0 - this.width
-        || this.position.y < 0 - this.height
-        || this.position.x > FRAME_WIDTH + this.width
-        || this.position.y > FRAME_HEIGHT + this.height) {
-            Index.model.game.remove(this)
-        }
+        // const FRAME_WIDTH = 16
+        // const FRAME_HEIGHT = 9
+        // if(this.position.x < 0 - this.width
+        // || this.position.y < 0 - this.height
+        // || this.position.x > FRAME_WIDTH + this.width
+        // || this.position.y > FRAME_HEIGHT + this.height) {
+        //     Index.model.game.remove(this)
+        // }
 
         if(this.affiliation == "baddies") {
             const goodie = Index.model.game.player
