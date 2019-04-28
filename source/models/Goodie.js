@@ -3,7 +3,7 @@ import Index from "index"
 
 import Projectile from "models/Projectile.js"
 
-export default class Player {
+export default class Goodie {
     constructor() {
         this.width = 1
         this.height = 1
@@ -64,7 +64,7 @@ export default class Player {
         || Keyb.isPressed("<right>")) {
             this.velocity.x = +1 * this.speed * delta.f
         }
-        
+
         const FRAME_WIDTH = 16
         const FRAME_HEIGHT = 9
         // if(this.position.x + this.velocity.x < 0

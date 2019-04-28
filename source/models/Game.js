@@ -1,14 +1,14 @@
 import Keyb from "keyb"
 import Id from "shortid"
 
-import Player from "models/Player.js"
+import Goodie from "models/Goodie.js"
 import Baddie from "models/Baddie.js"
 
 export default class Game {
     constructor(game) {
         this.entities = {}
 
-        this.add(this.player = new Player())
+        this.add(this.player = new Goodie())
         this.add(new Baddie({
             "position": {"x": 16 * 0.5, "y": 9 * 0.5}
         }))
