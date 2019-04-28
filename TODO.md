@@ -1,21 +1,35 @@
-To Do:
+Bugs:
 - Fix the turrets when rotating from 360deg to 0deg.
 
-Sunday: Polish!
-- Aesthetics - Everything looks good
-- Content - Everything is long enough
-- UI/UX - Everything flows well
-- Juice - Everything feels good
-
-To Do For Polish:
+Polish:
+- Moving in a level + auto-scrolling camera.
+- Baddies placed
+- End screen with results, and options to restart or return to title screen.
+- Cryptic dialogue cutscene explaining hearts-as-projectiles.
+- Projectiles.
+Art:
 - The hearts should look like hearts, both as projectiles and pickups.
+- The goodies and baddies should have cowboyana-style sprites.
+POLISH
+- The hearts ui should list how many hearts you have exactly.
+- Projectiles do not leave the frame. Projectiles return to you after you shoot them? Projectiles float towards you if you're not shooting.
+- Leveling up your weapon with each wave.
+- End with a boss!!
+JUICE
 - A sound should play when entities get hit, shoot, pickup hearts, explode.
 - The hearts you lose on hit should be shot out of you and fade away.
-- Turrets should be renamed to baddies.
-- Players shouldn't be able to shoot your final heart.
-- The hearts ui should list how many hearts you have exactly.
-- The hearts should float towards you if you're near them.
+- On the end screen, show the heart count over time, rendered as a heart beat scan
+- Achievements: killed yourself, beat the game!, "" without dying
+- Muzzle flash, shrapnel/gun cartridge, etc
 - The hearts should beat to the music.
+- Screenshake!!
+- Projectile trail
+- Health bar shaking when near death
+- Health bar shaking when you take a shot
+- Flash white when get hit along with sound
+- Sounds! avatar screaming, gun kuthunk kuthunking, gun reving up and down, shots hitting target, enemies dying.
+
+To Do Later:
 - Add icons to the electron build.
 - Add keyboard support to the screens.
 - Add url/history/back-button support to the screens?
@@ -31,25 +45,20 @@ To Do For Polish:
 - A ninja-gaiden-style cutscene?
 - A cowboyana-style drop-in co-op?
 - A boss?
-- Unlocking new weapons for having a lot of hearts.
 - Enemies with slow moving projectiles, spread projectiles, homing missiles, timed lasers on and off, spikes/cactus, mines.
-- polish: have an end screen for each level with current health, heart beat throughout the level
-- polish: end credits
-- polish: achievements: killed yourself, beat the game!, "" without dying, gg reference to devils third?
-- juice: muzzle flash, shrapnel/gun cartridge, etc
-- juice: screenshake!! but when?
-- juice: projectile trail
-- juice: health bar shaking when near death
-- juice: health bar shaking when you take a shot
-- juice: flash white when get hit along with sound
-- juice: sounds! avatar screaming, gun kuthunk kuthunking, gun reving up and down, shots hitting target, enemies dying.
-- juice: hearts need to beat to the music.
-- maybe make the hearts that weren't originally yours look different?
-- bad voice acting is a must.
-- nuclear-throne-style sprite aiming, with small gun just rotating around axis.
-- have a very good you win screen.
-- cherub character design; pink skin. but with a gun, not bow and arrow.
-- cowboys! slingers. maybe do some cowboyana vibes?
+- Credits
+- Make the hearts that weren't originally yours look different?
+- Bad voice acting!!
+- Animating the gun aiming, nuclear-throne-style with a small gun just rotating around an axis.
+- Have a very good you win screen.
+- Character design; pink skin. Cherub with a gun, not bow and arrow.
+- Cowboys! "Slingers"
+
+Goals:
+- Aesthetics - Everything looks good
+- Content - Everything is long enough
+- UI/UX - Everything flows well
+- Juice - Everything feels good
 
 To Do Later:
 - Contribute back to example-codeglue-project.
