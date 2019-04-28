@@ -1,12 +1,12 @@
 Bugs:
 - Fix the turrets when rotating from 360deg to 0deg.
+- Fixed the link in the pause menu.
 
 Polish:
 - Moving in a level + auto-scrolling camera.
-- Baddies placed
+- Baddies placed in world.
 - End screen with results, and options to restart or return to title screen.
 - Cryptic dialogue cutscene explaining hearts-as-projectiles.
-- Projectiles.
 Art:
 - The hearts should look like hearts, both as projectiles and pickups.
 - The goodies and baddies should have cowboyana-style sprites.

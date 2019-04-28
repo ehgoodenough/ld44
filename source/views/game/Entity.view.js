@@ -1,5 +1,5 @@
 import Preact from "preact"
-import Index from "index.js"
+import Index from "index"
 
 import "views/game/Entity.view.less"
 

@@ -1,5 +1,5 @@
 import Preact from "preact"
-import Index from "index.js"
+import Index from "index"
 
 import "views/Mount.view.less"
 import Frame from "views/Frame.view.js"

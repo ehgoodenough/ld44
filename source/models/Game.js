@@ -3,15 +3,17 @@ import Id from "shortid"
 
 import Goodie from "models/Goodie.js"
 import Baddie from "models/Baddie.js"
+import World from "models/World.js"
 
 export default class Game {
     constructor(game) {
         this.entities = {}
-
+        this.goodies = {}
+        this.baddies = {}
         this.add(this.player = new Goodie())
-        this.add(new Baddie({
-            "position": {"x": 16 * 0.5, "y": 9 * 0.5}
-        }))
+        // this.add(new Baddie({"position": {"x": 16 * 0.5, "y": 9 * 0.5}}))
+
+        this.world = new World()
     }
     update(delta) {
         if(Keyb.wasJustPressed("<escape>")) {
