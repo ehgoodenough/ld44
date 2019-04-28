@@ -9,8 +9,8 @@ export default class GameScreen {
     render() {
         return (
             <div class="GameScreen" onClick={this.onClick}>
+                <Game game={Index.model.game}/>
                 <PauseMenu/>
-                <Game/>
             </div>
         )
     }

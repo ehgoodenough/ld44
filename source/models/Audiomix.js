@@ -2,8 +2,7 @@ import LocalStorage from "local-storage-json"
 
 const music = {
     "debris": new Audio(require("music/debris.mp3")),
-    "trouble": new Audio(require("music/trouble.mp3")),
-    "spacetime": new Audio(require("music/spacetime.mp3")),
+    "trouble": new Audio(require("music/spacetime.mp3")),
 }
 
 const sound = {
@@ -20,13 +19,17 @@ export default class Audiomix {
             LocalStorage.set("musicPlaying", this.musicPlaying)
         }
 
-        // this.playMusic()
+        this.playMusic("debris")
     }
-    playMusic() {
-        this.music = music["trouble"]
+    playMusic(name) {
+        if(this.music !== undefined) {
+            this.music.pause()
+        }
+        this.music = music[name]
         this.music.volume = this.musicVolume / 100
-        // this.music.playbackRate = 2
-        this.music.currentTime = (Date.now() - this.musicPlaying.time) / 1000
+        // if(__STAGE__ === "DEVELOPMENT") {
+        //     this.music.currentTime = (Date.now() - this.musicPlaying.time) / 1000
+        // }
         this.music.addEventListener("ended", () => {
             LocalStorage.set("musicPlaying", {
                 "time": Date.now(),

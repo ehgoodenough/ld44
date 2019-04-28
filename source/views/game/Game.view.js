@@ -10,9 +10,9 @@ export default class Game {
     render() {
         return (
             <div class="Game">
-                <Overlay/>
-                <World/>
-                {Object.values(Index.model.game.entities).map((entity) => (
+                <Overlay game={this.props.game}/>
+                <World game={this.props.game}/>
+                {Object.values(this.props.game.entities).map((entity) => (
                     <Entity entity={entity}/>
                 ))}
             </div>

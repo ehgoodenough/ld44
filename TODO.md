@@ -4,32 +4,37 @@ Bugs:
 - Fix a super-jump when jumping just after ledge-grabbing.
 - Fix gimpy dropping when on an upwards slope -> /
 
-Polish:
-- End screen with results, and options to restart or return to title screen.
-- Cryptic dialogue cutscene explaining hearts-as-projectiles.
-Art:
-- The hearts should look like hearts, both as projectiles and pickups.
-- The goodies and baddies should have cowboyana-style sprites.
-- Decorate the world with cowboy stuff.
-POLISH
-- The hearts ui should list how many hearts you have exactly.
-- Projectiles do not leave the frame. Projectiles return to you after you shoot them? Projectiles float towards you if you're not shooting.
-- Leveling up your weapon with each wave.
-- End with a boss!!
-- Equipment like parachute/rope?
 JUICE
-- A sound should play when entities get hit, shoot, pickup hearts, explode.
-- The hearts you lose on hit should be shot out of you and fade away.
-- On the end screen, show the heart count over time, rendered as a heart beat scan
-- Achievements: killed yourself, beat the game!, "" without dying
-- Muzzle flash, shrapnel/gun cartridge, etc
+- Cryptic dialogue cutscene explaining hearts-as-projectiles
+- End screen with results, and options to restart or return to title screen.
+- Art
+    - The goodies and baddies should have cowboyana-style sprites.
+- Sound
+    - A sound should play when entities get hit, shoot, pickup hearts, explode.
+    - Sounds! avatar screaming, gun kuthunk kuthunking, gun reving up and down, shots hitting target, enemies dying.
+- Feel
+    - The hearts you lose on hit should be shot out of you and fade away.
+    - Muzzle flash, shrapnel/gun cartridge, etc
+    - Screenshake!!
+    - Projectile trail
+    - Health bar shaking when near death
+    - Health bar shaking when you take a shot
+    - Flash white when get hit along with sound
+- Nice
+    - On the end screen, show the heart count over time, rendered as a heart beat
+    - Achievements: killed yourself, beat the game!, "" without dying
+- Decorate the world with cowboy stuff.
+DESIGN
+- Projectiles do not leave the frame. Projectiles return to you after you shoot them? Projectiles float towards you if you're not shooting.
+- Picking up the hearts of your enemies
+- The hearts ui should list how many hearts you have exactly.
+- The hearts should look like hearts, both as projectiles and pickups.
 - The hearts should beat to the music.
-- Screenshake!!
-- Projectile trail
-- Health bar shaking when near death
-- Health bar shaking when you take a shot
-- Flash white when get hit along with sound
-- Sounds! avatar screaming, gun kuthunk kuthunking, gun reving up and down, shots hitting target, enemies dying.
+POLISH
+- Different player weapons?
+- Enemies that just stand there but kill on touch. Enemies that move around. Enemies with slow moving projectiles, spread projectiles, homing missiles, timed lasers on and off, spikes/cactus, mines.
+- Equipment like parachute/rope?
+- Boss!
 
 To Do Later:
 - Add icons to the electron build.
@@ -47,7 +52,6 @@ To Do Later:
 - A ninja-gaiden-style cutscene?
 - A cowboyana-style drop-in co-op?
 - A boss?
-- Enemies with slow moving projectiles, spread projectiles, homing missiles, timed lasers on and off, spikes/cactus, mines.
 - Credits
 - Make the hearts that weren't originally yours look different?
 - Bad voice acting!!

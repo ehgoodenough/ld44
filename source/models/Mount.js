@@ -7,14 +7,21 @@ export default class Mount {
     constructor() {
         this.title = "Heartslingers II"
 
-        this.audio = new Audiomix()
+        this.audiomix = new Audiomix()
 
         this.screen = "TitleScreen"
-        if(__STAGE__ == "DEVELOPMENT") {
-            this.screen = "GameScreen"
-        }
+        // if(__STAGE__ == "DEVELOPMENT") {
+        //     this.screen = "GameScreen"
+        // }
 
-        this.startGame()
+        this.demogame = new Game({
+            "isDemo": true,
+            "world": {
+                "seed": "wonder",
+                "colorset": 3,
+                "slow": true,
+            }
+        })
 
         this.timer = 0
     }
@@ -25,6 +32,10 @@ export default class Mount {
             if(this.game != undefined) {
                 this.game.update(delta)
             }
+        }
+
+        if(this.screen == "TitleScreen") {
+            this.demogame.update(delta)
         }
     }
     startGame() {

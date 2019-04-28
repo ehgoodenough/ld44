@@ -15,7 +15,7 @@ export default class Overlay {
     }
     get hearts() {
         const hearts = []
-        for(let i = 0; i < Index.model.game.player.hearts; i += 1) {
+        for(let i = 0; i < this.props.game.player.hearts; i += 1) {
             hearts.push(<div class="Heart"/>)
         }
         return hearts

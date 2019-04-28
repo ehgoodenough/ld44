@@ -12,8 +12,8 @@ export default class World {
         return (
             <svg class="World" style={this.style}
                 viewBox={"0 0" + " " + (FRAME_WIDTH * UNIT) + " " + FRAME_HEIGHT * UNIT}>
-                <Sun color={Index.model.game.world.colors[4]}/>
-                {Object.values(Index.model.game.world.levels).map((level) => (
+                <Sun color={this.props.game.world.colors[4]}/>
+                {Object.values(this.props.game.world.levels).map((level) => (
                     <Level level={level}/>
                 ))}
             </svg>
@@ -21,16 +21,18 @@ export default class World {
     }
     get style() {
         return {
-            "background-color": Index.model.game.world.colors[0],
+            "background-color": this.props.game.world.colors[0],
         }
     }
 }
 
 class Sun {
     render() {
-        return (
-            <circle cx="60" cy="25" r="20" fill={this.props.color}/>
-        )
+        if(this.props.color) {
+            return (
+                <circle cx="40" cy="25" r="20" fill={this.props.color}/>
+            )
+        }
     }
 }
 

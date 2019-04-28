@@ -14,15 +14,18 @@ const COLORS = [
 
 export default class World {
     constructor(world = {}) {
-        this.colors = world.colors || COLORS[2]
+        this.colors = world.colors || COLORS[world.colorset || 2]
 
-        seedrandom("ld44.", {"global": true})
+        this.slow = world.slow
+
+        seedrandom(world.seed || "ld44.", {"global": true})
 
         this.levels = []
         for(let number = 0; number < 3; number += 1) {
             this.levels.push(new Level({
                 "color": this.colors[number + 1],
                 "number": number,
+                "slow": this.slow
             }))
         }
     }
@@ -46,7 +49,7 @@ class Level {
     constructor(level) {
         this.color = level.color
         this.number = level.number
-        this.speed = ((this.number * 2) + 3) / 300
+        this.speed = ((this.number * 2) + 3) / (300 + (level.slow ? 300 : 0))
 
         this.points = new Array()
         while(this.points.length < 21) {
