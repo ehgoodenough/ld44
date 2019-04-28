@@ -12,14 +12,14 @@ export default class OptionsScreen {
                 <h1>Options</h1>
                 <div class="Option">
                     <label>Music Volume</label>
-                    <input class="Volume" type="range" min="1" max="100"
-                        value={Index.model.audio.musicVolume}
+                    <input class="Volume" type="range" min="0" max="100"
+                        value={Index.model.audiomix.musicVolume}
                         onInput={this.onInputMusicVolume}/>
                 </div>
                 <div class="Option">
                     <label>Sound Volume</label>
-                    <input class="Volume" type="range" min="1" max="100"
-                        value={Index.model.audio.soundVolume}
+                    <input class="Volume" type="range" min="0" max="100"
+                        value={Index.model.audiomix.soundVolume}
                         onInput={this.onInputSoundVolume}
                         onChange={this.onChangeSoundVolume}/>
                 </div>
@@ -29,17 +29,17 @@ export default class OptionsScreen {
     }
     get onInputMusicVolume() {
         return (event) => {
-            Index.model.audio.setMusicVolume(event.target.value)
+            Index.model.audiomix.setMusicVolume(event.target.value)
         }
     }
     get onInputSoundVolume() {
         return (event) => {
-            Index.model.audio.setSoundVolume(event.target.value)
+            Index.model.audiomix.setSoundVolume(event.target.value)
         }
     }
     get onChangeSoundVolume() {
         return (event) => {
-            Index.model.audio.playSound()
+            Index.model.audiomix.playSound()
         }
     }
 }
