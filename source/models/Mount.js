@@ -20,7 +20,7 @@ export default class Mount {
     }
     update(delta) {
         this.timer += delta.ms
-        
+
         if(this.screen == "GameScreen") {
             if(this.game != undefined) {
                 this.game.update(delta)

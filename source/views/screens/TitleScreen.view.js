@@ -10,7 +10,7 @@ export default class TitleScreen {
             <div class="TitleScreen">
                 <section class="MenuSection">
                     <div class="Title">
-                        <h1>Game Title!!</h1>
+                        <h1>Heartslingers II</h1>
                         <h2>A subtitle about the game.</h2>
                     </div>
                     <div class="Links">

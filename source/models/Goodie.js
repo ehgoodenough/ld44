@@ -75,7 +75,7 @@ export default class Goodie {
 
         if(this.mode == "on ground" && upIsPressed
         || this.mode == "on ledge" && upWasJustPressed
-        || this.mode == "falling" && this.velocity.y < MAX_VELOCITY_BEFORE_JUMP && this.inputs.upwards.isJustDown(delta)) {
+        || this.mode == "falling" && this.velocity.y < MAX_VELOCITY_BEFORE_JUMP && upWasJustPressed) {
             this.velocity.y = -this.acceleration.y
             this.jumpdist = this.position.y
             this.mode = "jumping"
