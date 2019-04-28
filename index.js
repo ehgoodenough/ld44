@@ -6025,7 +6025,7 @@ function () {
     this.size.x = 0.5;
     this.size.y = 0.5;
     this.anchor = {
-      "x": 0.5,
+      "x": 0,
       "y": 1 // this.image = require("images/red.cowboy.body.png")
 
     };
@@ -6039,8 +6039,8 @@ function () {
     this.levelnum = 0;
     this.mode = "parachuting";
     this.position = {
-      "x": 16 * 0.25,
-      "y": 9 * 0.5
+      "x": 7.75,
+      "y": 0
     };
     this.velocity = {
       x: 0,
@@ -6419,7 +6419,7 @@ function () {
   function Mount() {
     _classCallCheck(this, Mount);
 
-    this.title = "Heartslingers II";
+    this.title = "Untitled?";
     this.audiomix = new models_Audiomix_js__WEBPACK_IMPORTED_MODULE_2__["default"]();
     this.screen = "TitleScreen"; // if(__STAGE__ == "DEVELOPMENT") {
     //     this.screen = "GameScreen"
@@ -7911,7 +7911,7 @@ function () {
         class: "MenuSection"
       }, preact__WEBPACK_IMPORTED_MODULE_0__["default"].h("div", {
         class: "Title"
-      }, preact__WEBPACK_IMPORTED_MODULE_0__["default"].h("h1", null, "Heartslingers II"), preact__WEBPACK_IMPORTED_MODULE_0__["default"].h("h2", null, "A game for Ludum Dare 44.")), preact__WEBPACK_IMPORTED_MODULE_0__["default"].h("div", {
+      }, preact__WEBPACK_IMPORTED_MODULE_0__["default"].h("h1", null, index__WEBPACK_IMPORTED_MODULE_1__["default"].model.title), preact__WEBPACK_IMPORTED_MODULE_0__["default"].h("h2", null, "A game for Ludum Dare 44.")), preact__WEBPACK_IMPORTED_MODULE_0__["default"].h("div", {
         class: "Links"
       }, preact__WEBPACK_IMPORTED_MODULE_0__["default"].h(views_Link_view_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
         screen: "GameScreen",
