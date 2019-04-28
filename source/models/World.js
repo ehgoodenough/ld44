@@ -167,4 +167,7 @@ class Level {
             }
         }
     }
+    get levelnum() {
+        return this.number
+    }
 }
