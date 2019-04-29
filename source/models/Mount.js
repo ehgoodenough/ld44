@@ -5,7 +5,7 @@ import Audiomix from "models/Audiomix.js"
 
 export default class Mount {
     constructor() {
-        this.title = "Untitled?"
+        this.title = "Heartslingers II"
 
         this.audiomix = new Audiomix()
 

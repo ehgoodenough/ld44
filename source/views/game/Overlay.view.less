@@ -10,20 +10,21 @@
     z-index: 999999;
     position: absolute;
 
-    padding: @small-gutter;
+    padding: @small-gutter @gutter;
 
     .HealthBar {
         i {
-            float: left;
+            // float: left;
             font-size: 0.5em;
+            display: block;
         }
         .Hearts {
-            display: flex;
-            flex-direction: row;
+            // display: flex;
+            // flex-direction: column;
             .Heart {
-                width: 0.1em;
-                height: 0.5em;
-                margin-left: 0.1em;
+                width: 0.5em;
+                height: 0.1em;
+                margin-top: 0.1em;
                 border-radius: @roundness;
                 border-color: @white;
                 border-style: solid;

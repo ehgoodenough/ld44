@@ -34,7 +34,7 @@ export default class Goodie {
         this.isDamaged = 0
         // this.hearts = 30
         // this.hearts = 10
-        this.maxhearts = 3
+        this.maxhearts = 25
         this.hearts = this.maxhearts
 
         // PLATFORMER
@@ -68,10 +68,10 @@ export default class Goodie {
             return
         }
         if(Keyb.wasJustPressed("<space>")) {
-            // this.hearts -= 1
-            // if(this.hearts <= 0) {
-            //     this.die()
-            // }
+            this.hearts -= 1
+            if(this.hearts <= 0) {
+                this.die()
+            }
             Index.model.game.add(new Projectile({
                 "rotation": 0,
                 "position": this.position,

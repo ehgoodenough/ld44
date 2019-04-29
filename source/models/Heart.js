@@ -10,16 +10,18 @@ export default class Heart {
         this.size.y = 0.5
 
         this.position = clonedeep(heart.position)
+        this.levelnum = heart.levelnum
 
         this.speed = heart.speed || 0.5
         this.deceleration = 0.25
-        this.rotation = heart.rotation || Math.random() * (Math.PI * 2)
+        this.rotation = heart.rotation || (Math.PI * -0.5) + ((Math.PI * -0.5) * Math.random() - (Math.PI * -0.25))
 
         this.velocity = {}
         this.velocity.x = Math.cos(this.rotation) * this.speed
         this.velocity.y = Math.sin(this.rotation) * this.speed
 
-        this.color = WHITE
+        this.color = "#F4F8F0"
+        this.icon = "fas fa-heart"
     }
     update(delta) {
         const level = Index.model.game.world.levels[0]

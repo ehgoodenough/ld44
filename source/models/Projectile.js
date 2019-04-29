@@ -1,7 +1,8 @@
 import Index from "index"
 import clonedeep from "lodash.clonedeep"
 
-const WHITE = "#FFF"
+const WHITE = "#F4F8F0"
+const RED = "#A52F22"
 
 export default class Projectile {
     constructor(projectile) {
@@ -20,7 +21,7 @@ export default class Projectile {
 
         this.affiliation = projectile.affiliation
 
-        this.color = WHITE
+        this.color = this.affiliation === "goodies" ? WHITE : RED
     }
     update(delta) {
         this.position.x += this.velocity.x
@@ -62,6 +63,13 @@ export default class Projectile {
                     Index.model.audiomix.playSound("hit" + Math.ceil(Math.random() * 3))
                 }
             })
+        }
+    }
+    get icon() {
+        if(this.affiliation === "goodies") {
+            return "fas fa-heart"
+        } else {
+            return "fas fa-star"
         }
     }
 }

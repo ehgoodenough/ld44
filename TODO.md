@@ -1,6 +1,9 @@
-JUICE
-- End the level after a certain point!!
-- End screen with results, and options to restart or return to title screen.
+FINALIZE
+- End the level after a certain point!! Stop scrolling.
+- End screen blur with results, and options to restart or return to title screen.
+- Place enemies.
+- Don't start scrolling until they kill the first baddie.
+- The goodies and baddies should have sprites for guns and projectiles.
 
 THEME
 - Hearts should look like hearts.
@@ -16,14 +19,13 @@ THEME
 - Make the hearts that weren't originally yours look different?
 
 SCOPE CREEP
-- The goodies and baddies should have sprites.
 - Different player weapons?
 - Enemies that just stand there but kill on touch. Enemies that move around. Enemies with slow moving projectiles, spread projectiles, homing missiles, timed lasers on and off, spikes/cactus, mines.
 - Equipment like parachute/rope?
 - Boss!
 - Achievements: killed yourself, beat the game!, did x without dying
 - Decorate the world.
-- Juice: Muzzle flash, shrapnel/gun cartridge, etc. Screenshake!! Projectile trail. Health bar shaking when near death, shaking when you take a shot.
+- Juice: Muzzle flash, shrapnel/gun cartridge, etc. Screenshake!! Projectile trail. Health bar shaking when near death, shaking when you take a shot. Strech and squish on jumping.
 
 BUGS
 - Fix the turrets when rotating from 360deg to 0deg.

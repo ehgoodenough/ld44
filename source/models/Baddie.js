@@ -247,11 +247,12 @@ export default class Baddie {
 
         Index.model.audiomix.playSound("explosion" + Math.ceil(Math.random() * 3))
 
-        // for(let i = 0; i < this.maxhealth; i += 1) {
-        //     Index.model.game.add(new Heart({
-        //         "position": this.position,
-        //     }))
-        // }
+        for(let i = 0; i < this.maxhealth; i += 1) {
+            Index.model.game.add(new Heart({
+                "position": this.position,
+                "levelnum": this.levelnum
+            }))
+        }
     }
     get color() {
         if(this.isDead != true) {
