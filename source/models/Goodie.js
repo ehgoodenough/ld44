@@ -31,7 +31,8 @@ export default class Goodie {
 
         this.isDamaged = 0
         // this.hearts = 30
-        this.hearts = 10
+        // this.hearts = 10
+        this.hearts = 3
 
         // PLATFORMER
         this.levelnum = 0

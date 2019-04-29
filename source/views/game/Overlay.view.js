@@ -7,9 +7,8 @@ export default class Overlay {
     render() {
         return (
             <div class="Overlay">
-                <div class="Hearts">
-                    {this.hearts}
-                </div>
+                {this.hearts}
+                {this.bloodflash}
             </div>
         )
     }
@@ -18,6 +17,20 @@ export default class Overlay {
         for(let i = 0; i < this.props.game.player.hearts; i += 1) {
             hearts.push(<div class="Heart"/>)
         }
-        return hearts
+        return (
+            <div class="Hearts">
+                {hearts}
+            </div>
+        )
+    }
+    get bloodflash() {
+        if(this.props.game.player.isDead) {
+            return
+        }
+        return (
+            <div class="Bloodflash" style={{
+                "opacity": Math.max(this.props.game.player.isDamaged - 1000, 0) / 500
+            }}/>
+        )
     }
 }

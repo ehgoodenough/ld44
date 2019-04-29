@@ -1,3 +1,4 @@
+import Index from "index"
 import seedrandom from "seedrandom"
 
 const COLORS = [
