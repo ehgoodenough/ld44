@@ -6,11 +6,9 @@ Bugs:
 - Hitting down while in the air sometimes snaps you to the level?
 
 JUICE
-- Hearts should look like hearts.
-- Dropped hearts are missing a) physics and b) collision!!
 - The goodies and baddies should have cowboyana-style sprites.
 - Cryptic dialogue cutscene explaining hearts-as-projectiles
-- End of level after a certain point!!
+- End the level after a certain point!!
 - End screen with results, and options to restart or return to title screen.
 - A sound should play when entities get hit, shoot, pickup hearts, explode. Sounds! avatar screaming, gun kuthunk kuthunking, gun reving up and down, shots hitting target, enemies dying.
 - Feel
@@ -25,13 +23,16 @@ JUICE
     - On the end screen, show the heart count over time, rendered as a heart beat
     - Achievements: killed yourself, beat the game!, "" without dying
 - Decorate the world with cowboy stuff.
+
 DESIGN
+- Hearts should look like hearts.
+- Dropped hearts are missing a) physics and b) collision!!
 - Projectiles do not leave the frame. Projectiles return to you after you shoot them? Projectiles float towards you if you're not shooting.
 - Picking up the hearts of your enemies
 - The hearts ui should list how many hearts you have exactly.
 - The hearts should look like hearts, both as projectiles and pickups.
 - The hearts should beat to the music.
-POLISH
+SCOPE CREEP
 - Different player weapons?
 - Enemies that just stand there but kill on touch. Enemies that move around. Enemies with slow moving projectiles, spread projectiles, homing missiles, timed lasers on and off, spikes/cactus, mines.
 - Equipment like parachute/rope?

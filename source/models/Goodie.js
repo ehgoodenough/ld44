@@ -19,7 +19,7 @@ export default class Goodie {
         this.size.x = 0.5
         this.size.y = 0.5
 
-        this.anchor = {"x": 0, "y": 1}
+        this.anchor = {"x": 0.5, "y": 1}
 
         // this.image = require("images/red.cowboy.body.png")
 
@@ -30,7 +30,8 @@ export default class Goodie {
         // this.speed = 0.1
 
         this.isDamaged = 0
-        this.hearts = 30
+        // this.hearts = 30
+        this.hearts = 10
 
         // PLATFORMER
         this.levelnum = 0
@@ -63,10 +64,10 @@ export default class Goodie {
             }
         }
         if(Keyb.wasJustPressed("<space>")) {
-            this.hearts -= 1
-            if(this.hearts <= 0) {
-                this.die()
-            }
+            // this.hearts -= 1
+            // if(this.hearts <= 0) {
+            //     this.die()
+            // }
             Index.model.game.add(new Projectile({
                 "rotation": 0,
                 "position": this.position,
