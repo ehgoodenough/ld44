@@ -43,6 +43,7 @@ export default class Mount {
         this.game = new Game({
             "world": {
                 "colorset": 3,
+                "seed": "ld44."
             }
         })
     }

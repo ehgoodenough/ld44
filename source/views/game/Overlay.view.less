@@ -12,12 +12,27 @@
 
     padding: @small-gutter;
 
-    .Hearts {
-        .Heart {
-            width: 0.5em;
-            height: 0.1em;
-            margin: 0.1em;
-            background-color: @white;
+    .HealthBar {
+        i {
+            float: left;
+            font-size: 0.5em;
+        }
+        .Hearts {
+            display: flex;
+            flex-direction: row;
+            .Heart {
+                width: 0.1em;
+                height: 0.5em;
+                margin-left: 0.1em;
+                border-radius: @roundness;
+                border-color: @white;
+                border-style: solid;
+                border-width: 1px;
+
+                &[isFull] {
+                    background-color: @white;
+                }
+            }
         }
     }
 

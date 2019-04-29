@@ -2,13 +2,6 @@ JUICE
 - End the level after a certain point!!
 - End screen with results, and options to restart or return to title screen.
 
-BUGS
-- Fix the turrets when rotating from 360deg to 0deg.
-- Fix the link in the pause menu.
-- Fix a super-jump when jumping just after ledge-grabbing.
-- Fix gimpy dropping when on slopes
-- Hitting down while in the air sometimes snaps you to the level?
-
 THEME
 - Hearts should look like hearts.
 - Dropped hearts are missing a) physics and b) collision!!
@@ -31,6 +24,13 @@ SCOPE CREEP
 - Achievements: killed yourself, beat the game!, did x without dying
 - Decorate the world.
 - Juice: Muzzle flash, shrapnel/gun cartridge, etc. Screenshake!! Projectile trail. Health bar shaking when near death, shaking when you take a shot.
+
+BUGS
+- Fix the turrets when rotating from 360deg to 0deg.
+- Fix a super-jump when jumping just after ledge-grabbing.
+- Fix gimpy dropping when on slopes.
+- Hitting down while in the air sometimes snaps you to the level?
+- Sometimes an enemy will die and the death animation is delayed and off-position.
 
 To Do Later:
 - Add icons to the electron build.

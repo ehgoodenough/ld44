@@ -14,12 +14,15 @@ export default class Overlay {
     }
     get hearts() {
         const hearts = []
-        for(let i = 0; i < this.props.game.player.hearts; i += 1) {
-            hearts.push(<div class="Heart"/>)
+        for(let i = 0; i < this.props.game.player.maxhearts; i += 1) {
+            hearts.push(<div class="Heart" isFull={i < this.props.game.player.hearts}/>)
         }
         return (
-            <div class="Hearts">
-                {hearts}
+            <div class="HealthBar">
+                <i class="fas fa-heart"></i>
+                <div class="Hearts">
+                    {hearts}
+                </div>
             </div>
         )
     }

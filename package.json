@@ -39,6 +39,7 @@
     "npm": ">=5"
   },
   "dependencies": {
+    "font-awesome": "^4.7.0",
     "keyb": "^1.2.0",
     "local-storage-json": "^1.0.0",
     "lodash.clonedeep": "^4.5.0",
