@@ -18,6 +18,9 @@ const sound = {
     "shoot1": new Audio(require("sounds/shoot1.wav")),
     "shoot2": new Audio(require("sounds/shoot2.wav")),
     "shoot3": new Audio(require("sounds/shoot3.wav")),
+    "pickup1": new Audio(require("sounds/pickup1.wav")),
+    "pickup2": new Audio(require("sounds/pickup2.wav")),
+    "pickup3": new Audio(require("sounds/pickup3.wav")),
 }
 
 export default class Audiomix {

@@ -33,6 +33,7 @@ BUGS
 - Fix gimpy dropping when on slopes.
 - Hitting down while in the air sometimes snaps you to the level?
 - Sometimes an enemy will die and the death animation is delayed and off-position.
+- Why is there some slight drag between entities on the level and the level itself?
 
 To Do Later:
 - Add icons to the electron build.
@@ -40,6 +41,7 @@ To Do Later:
 - Add url/history/back-button support to the screens?
 - Teach the audiomix to cycle between tracks w/ local storage.
 - Let the users reset their game from the title screen???
+- Pause all sounds and decrease the volume of the music while in the pause menu.
 - Sound effects when hovering and clicking on buttons.
 - Options for remapping the controls.
 - Animations when moving between screens.
@@ -66,3 +68,4 @@ To Do Later:
 - Contribute back to example-codeglue-project.
 - Make a wrapper for playing a random set of sounds.
 - Top-level god objects considered harmful.
+- Refactor out common constants like colors or sizes.

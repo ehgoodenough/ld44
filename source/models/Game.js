@@ -23,6 +23,10 @@ export default class Game {
             this.player = {}
         } else {
             this.add(this.player = new Goodie())
+            this.add(new Baddie({
+                "position": {"x": 14, "y": 0},
+                "levelnum": 0
+            }))
         }
     }
     update(delta) {
