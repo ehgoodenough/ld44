@@ -6,13 +6,13 @@ Bugs:
 - Hitting down while in the air sometimes snaps you to the level?
 
 JUICE
+- Hearts should look like hearts.
+- Dropped hearts are missing a) physics and b) collision!!
+- The goodies and baddies should have cowboyana-style sprites.
 - Cryptic dialogue cutscene explaining hearts-as-projectiles
+- End of level after a certain point!!
 - End screen with results, and options to restart or return to title screen.
-- Art
-    - The goodies and baddies should have cowboyana-style sprites.
-- Sound
-    - A sound should play when entities get hit, shoot, pickup hearts, explode.
-    - Sounds! avatar screaming, gun kuthunk kuthunking, gun reving up and down, shots hitting target, enemies dying.
+- A sound should play when entities get hit, shoot, pickup hearts, explode. Sounds! avatar screaming, gun kuthunk kuthunking, gun reving up and down, shots hitting target, enemies dying.
 - Feel
     - The hearts you lose on hit should be shot out of you and fade away.
     - Muzzle flash, shrapnel/gun cartridge, etc

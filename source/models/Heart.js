@@ -22,6 +22,9 @@ export default class Heart {
         this.color = WHITE
     }
     update(delta) {
+        const level = Index.model.game.world.levels[0]
+        this.position.x -= level.speed
+
         this.position.x += this.velocity.x
         this.position.y += this.velocity.y
 

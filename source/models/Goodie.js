@@ -30,7 +30,7 @@ export default class Goodie {
         // this.speed = 0.1
 
         this.isDamaged = 0
-        this.hearts = 10
+        this.hearts = 30
 
         // PLATFORMER
         this.levelnum = 0
@@ -63,10 +63,10 @@ export default class Goodie {
             }
         }
         if(Keyb.wasJustPressed("<space>")) {
-            // this.hearts -= 1
-            // if(this.hearts <= 0) {
-            //     this.die()
-            // }
+            this.hearts -= 1
+            if(this.hearts <= 0) {
+                this.die()
+            }
             Index.model.game.add(new Projectile({
                 "rotation": 0,
                 "position": this.position,

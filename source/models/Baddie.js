@@ -245,11 +245,11 @@ export default class Baddie {
         this.isDead = true
 
         // TODO: drop new heart container?
-        // for(let i = 0; i < this.maxhealth; i += 1) {
-        //     Index.model.game.add(new Heart({
-        //         "position": this.position,
-        //     }))
-        // }
+        for(let i = 0; i < this.maxhealth; i += 1) {
+            Index.model.game.add(new Heart({
+                "position": this.position,
+            }))
+        }
     }
     get color() {
         if(this.isDead != true) {
