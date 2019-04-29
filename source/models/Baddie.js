@@ -243,7 +243,9 @@ export default class Baddie {
     }
     die() {
         this.isDead = true
-        
+
+        Index.model.audiomix.playSound("explosion" + Math.ceil(Math.random() * 3))
+
         // for(let i = 0; i < this.maxhealth; i += 1) {
         //     Index.model.game.add(new Heart({
         //         "position": this.position,

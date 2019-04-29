@@ -6,7 +6,18 @@ const music = {
 }
 
 const sound = {
-    "clink": new Audio(require("sounds/clink.wav"))
+    "explosion1": new Audio(require("sounds/explosion1.wav")),
+    "explosion2": new Audio(require("sounds/explosion2.wav")),
+    "explosion3": new Audio(require("sounds/explosion3.wav")),
+    "hit1": new Audio(require("sounds/hit1.wav")),
+    "hit2": new Audio(require("sounds/hit2.wav")),
+    "hit3": new Audio(require("sounds/hit3.wav")),
+    "jump1": new Audio(require("sounds/jump1.wav")),
+    "jump2": new Audio(require("sounds/jump2.wav")),
+    "jump3": new Audio(require("sounds/jump3.wav")),
+    "shoot1": new Audio(require("sounds/shoot1.wav")),
+    "shoot2": new Audio(require("sounds/shoot2.wav")),
+    "shoot3": new Audio(require("sounds/shoot3.wav")),
 }
 
 export default class Audiomix {
@@ -40,10 +51,10 @@ export default class Audiomix {
         })
         this.music.play()
     }
-    playSound() {
-        sound["clink"].currentTime = 0
-        sound["clink"].volume = this.soundVolume / 100
-        sound["clink"].play()
+    playSound(name) {
+        sound[name].currentTime = 0
+        sound[name].volume = (this.soundVolume / 100) / 2
+        sound[name].play()
     }
     setMusicVolume(volume) {
         this.musicVolume = volume

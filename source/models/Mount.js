@@ -10,9 +10,10 @@ export default class Mount {
         this.audiomix = new Audiomix()
 
         this.screen = "TitleScreen"
-        // if(__STAGE__ == "DEVELOPMENT") {
-        //     this.screen = "GameScreen"
-        // }
+        if(__STAGE__ == "DEVELOPMENT") {
+            this.screen = "GameScreen"
+            this.startGame()
+        }
 
         this.demogame = new Game({
             "isDemo": true,
@@ -40,7 +41,9 @@ export default class Mount {
     }
     startGame() {
         this.game = new Game({
-            // ...
+            "world": {
+                "colorset": 3,
+            }
         })
     }
 }

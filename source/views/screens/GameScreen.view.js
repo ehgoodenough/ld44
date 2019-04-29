@@ -37,11 +37,13 @@ class PauseMenu {
     }
     get onClick() {
         return (event) => {
+            console.log("!!!")
             event.stopPropagation()
         }
     }
     get onClickLink() {
         return (event) => {
+            console.log("!!")
             Index.model.game.isPaused = false
         }
     }

@@ -43,6 +43,7 @@ export default class Projectile {
                 Index.model.game.remove(this)
                 if(goodie.isDamaged == 0) {
                     goodie.beHit(this)
+                    Index.model.audiomix.playSound("hit" + Math.ceil(Math.random() * 3))
                 }
             }
         } else if(this.affiliation == "goodies") {
@@ -52,6 +53,7 @@ export default class Projectile {
                 && distance < baddie.size.x * 0.75) {
                     Index.model.game.remove(this)
                     baddie.beHit(this)
+                    Index.model.audiomix.playSound("hit" + Math.ceil(Math.random() * 3))
                 }
             })
         }

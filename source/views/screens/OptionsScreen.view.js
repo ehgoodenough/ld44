@@ -39,7 +39,7 @@ export default class OptionsScreen {
     }
     get onChangeSoundVolume() {
         return (event) => {
-            Index.model.audiomix.playSound()
+            Index.model.audiomix.playSound("jump1")
         }
     }
 }

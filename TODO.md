@@ -1,7 +1,6 @@
 JUICE
 - End the level after a certain point!!
 - End screen with results, and options to restart or return to title screen.
-- A sound should play when entities get hit, shoot, pickup hearts, explode. Sounds! avatar screaming, gun kuthunk kuthunking, gun reving up and down, shots hitting target, enemies dying.
 
 BUGS
 - Fix the turrets when rotating from 360deg to 0deg.

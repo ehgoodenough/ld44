@@ -73,6 +73,7 @@ export default class Goodie {
                 "position": this.position,
                 "affiliation": "goodies",
             }))
+            Index.model.audiomix.playSound("shoot" + Math.ceil(Math.random() * 3))
         }
 
         if(this.position.x - Index.model.game.world.levels[this.levelnum].speed > 0) {
@@ -109,6 +110,8 @@ export default class Goodie {
             this.velocity.y = -this.acceleration.y
             this.jumpdist = this.position.y
             this.mode = "jumping"
+
+            Index.model.audiomix.playSound("jump" + Math.ceil(Math.random() * 3))
         }
         if(this.mode.match(/on ledge|on ground/)
         && downWasJustPressed
@@ -216,6 +219,8 @@ export default class Goodie {
     die() {
         this.isDead = true
         this.isDeadTimer = 2500
+
+        Index.model.audiomix.playSound("explosion" + Math.ceil(Math.random() * 3))
     }
     pickupHeart() {
         this.hearts += 1

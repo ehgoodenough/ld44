@@ -10,10 +10,10 @@
         left: 0em;
         right: 0em;
         bottom: 0em;
-        z-index: 100;
         margin: auto;
         width: 5em;
         height: 3.2em;
+        z-index: 99999999;
         position: absolute;
 
         text-align: center;
@@ -21,6 +21,7 @@
         overflow: hidden;
         border-radius: @roundness;
         background-color: @faded-black;
+        background-color: #222;
 
         bottom: @frame-height * -2;
         transition-property: bottom;
