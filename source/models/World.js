@@ -148,6 +148,9 @@ class Level {
         }
     }
     update(delta) {
+        if(Index.model.game.player.isDead) {
+            this.speed = 0
+        }
         for(var index in this.points) {
             this.points[index].x -= this.speed * delta.f
         }

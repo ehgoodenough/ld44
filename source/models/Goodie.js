@@ -21,6 +21,8 @@ export default class Goodie {
 
         this.anchor = {"x": 0.5, "y": 1}
 
+        this.color = "#F4F8F0"
+
         // this.image = require("images/red.cowboy.body.png")
 
         this.stack = 5
@@ -50,6 +52,12 @@ export default class Goodie {
         }
     }
     update(delta) {
+        if(this.isDamaged > 0) {
+            this.isDamaged -= delta.ms
+            if(this.isDamaged < 0) {
+                this.isDamaged = 0
+            }
+        }
         if(this.isDead === true) {
             this.isDeadTimer -= delta.ms
             if(this.isDeadTimer <= 0
@@ -57,12 +65,6 @@ export default class Goodie {
                 Index.model.startGame()
             }
             return
-        }
-        if(this.isDamaged > 0) {
-            this.isDamaged -= delta.ms
-            if(this.isDamaged < 0) {
-                this.isDamaged = 0
-            }
         }
         if(Keyb.wasJustPressed("<space>")) {
             // this.hearts -= 1
@@ -225,9 +227,6 @@ export default class Goodie {
     }
     pickupHeart() {
         this.hearts += 1
-    }
-    get color() {
-        return "#DEB74A"
     }
     get opacity() {
         if(this.isDamaged > 0

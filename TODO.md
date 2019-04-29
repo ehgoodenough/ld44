@@ -63,3 +63,4 @@ Goals:
 To Do Later:
 - Contribute back to example-codeglue-project.
 - Make a wrapper for playing a random set of sounds.
+- Top-level god objects considered harmful.

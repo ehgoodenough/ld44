@@ -24,9 +24,6 @@ export default class Overlay {
         )
     }
     get bloodflash() {
-        if(this.props.game.player.isDead) {
-            return
-        }
         return (
             <div class="Bloodflash" style={{
                 "opacity": Math.max(this.props.game.player.isDamaged - 1000, 0) / 500

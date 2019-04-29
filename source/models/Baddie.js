@@ -209,7 +209,8 @@ export default class Baddie {
         }
 
         this.timer -= delta.s
-        if(this.timer <= 0) {
+        if(this.timer <= 0
+        && Index.model.game.player.isDead != true) {
             if(this.isShooting == false) {
                 this.isShooting = true
                 this.timer = 0.5
