@@ -19,6 +19,8 @@ export default class Goodie {
         this.size.x = 0.5
         this.size.y = 0.5
 
+        this.direction = "right"
+
         this.anchor = {"x": 0.5, "y": 1}
 
         this.color = "#F4F8F0"
@@ -73,7 +75,7 @@ export default class Goodie {
                 this.die()
             }
             Index.model.game.add(new Projectile({
-                "rotation": 0,
+                "rotation": this.direction == "right" ? 0 : Math.PI,
                 "position": this.position,
                 "affiliation": "goodies",
             }))
@@ -128,9 +130,11 @@ export default class Goodie {
         // horizontal acceleration from inputs
         if(this.mode != "hiking") {
             if(leftIsPressed) {
+                this.direction = "left"
                 this.velocity.x = -1 * this.acceleration.x
             }
             if(rightIsPressed) {
+                this.direction = "right"
                 this.velocity.x = +1 * this.acceleration.x
             }
         }

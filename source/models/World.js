@@ -46,7 +46,7 @@ const OFFSET_BETWEEN_LEVELS = UNIT * 0.25
 const BUFFER = 1 // 360 - (((2 + 2 + 2) * UNIT) + OFFSET_BETWEEN_LEVELS + OFFSET_BETWEEN_LEVELS)
 const OFFSET_WITH_TOP_OF_FRAME = UNIT * 1.25
 
-const FRAME_WIDTH = 16
+const WORLD_LENGTH = 16 * 10
 
 class Level {
     constructor(level) {
@@ -162,7 +162,7 @@ class Level {
         }
 
         var endpoint = this.points[this.points.length - 2]
-        if(endpoint.x < FRAME_WIDTH) {
+        if(endpoint.x < WORLD_LENGTH) {
             this.addAnotherPoint()
         }
     }
