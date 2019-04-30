@@ -5700,7 +5700,7 @@ function () {
     this.isDoneShooting = false;
     this.deceleration = 0.25;
     this.group = "baddies";
-    this.maxhealth = 5;
+    this.maxhealth = 3;
     this.health = this.maxhealth;
     this.opacity = 1;
     this.shake = {
@@ -6014,19 +6014,20 @@ function () {
         },
         "levelnum": 0
       }));
-      var WORLD_LENGTH = 160;
+      var WORLD_LENGTH = 160; // for(let levelnum = 0; levelnum < 3; levelnum += 1) {
 
-      for (var levelnum = 0; levelnum < 3; levelnum += 1) {
-        for (var x = 18 + levelnum * 3; x < WORLD_LENGTH; x += 12) {
-          this.add(new models_Baddie_js__WEBPACK_IMPORTED_MODULE_3__["default"]({
-            "position": {
-              "x": x,
-              "y": 0
-            },
-            "levelnum": levelnum
-          }));
-        }
-      }
+      for (var x = 18; x < WORLD_LENGTH; x += 0) {
+        var levelnum = Math.floor(Math.random() * 3);
+        x += (levelnum + 1) * 2;
+        this.add(new models_Baddie_js__WEBPACK_IMPORTED_MODULE_3__["default"]({
+          "position": {
+            "x": x,
+            "y": 0
+          },
+          "levelnum": levelnum
+        }));
+      } // }
+
     }
   }
 
@@ -6147,7 +6148,7 @@ function () {
     this.isDamaged = 0; // this.hearts = 30
     // this.hearts = 10
 
-    this.maxhearts = 15;
+    this.maxhearts = 18;
     this.hearts = this.maxhearts; // PLATFORMER
 
     this.levelnum = 0;
