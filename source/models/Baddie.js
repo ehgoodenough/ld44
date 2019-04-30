@@ -34,7 +34,7 @@ export default class Baddie {
 
         this.group = "baddies"
 
-        this.maxhealth = 5
+        this.maxhealth = 3
         this.health = this.maxhealth
         this.opacity = 1
 

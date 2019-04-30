@@ -30,14 +30,16 @@ export default class Game {
             }))
 
             const WORLD_LENGTH = 160
-            for(let levelnum = 0; levelnum < 3; levelnum += 1) {
-                for(let x = 18 + (levelnum * 3); x < WORLD_LENGTH; x += 12) {
-                    this.add(new Baddie({
-                        "position": {"x": x, "y": 0},
-                        "levelnum": levelnum
-                    }))
-                }
+            // for(let levelnum = 0; levelnum < 3; levelnum += 1) {
+            for(let x = 18; x < WORLD_LENGTH; x += 0) {
+                const levelnum = Math.floor(Math.random() * 3)
+                x += (levelnum + 1) * 2
+                this.add(new Baddie({
+                    "position": {"x": x, "y": 0},
+                    "levelnum": levelnum
+                }))
             }
+            // }
         }
     }
     update(delta) {
