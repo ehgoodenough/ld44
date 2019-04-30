@@ -247,7 +247,7 @@ export default class Baddie {
 
         Index.model.audiomix.playSound("explosion" + Math.ceil(Math.random() * 3))
 
-        for(let i = 0; i < this.maxhealth + (Math.random() < 0.66 ? 1 : 0); i += 1) {
+        for(let i = 0; i < this.maxhealth + Math.floor(Math.random() * 1 + 1); i += 1) {
             Index.model.game.add(new Heart({
                 "position": this.position,
                 "levelnum": this.levelnum

@@ -1,7 +1,6 @@
 FINALIZE
 - End the level after a certain point!! Stop scrolling.
-- End screen blur with results, and options to restart or return to title screen.
-- Place enemies.
+- End screen with results and options to restart or return to title screen.
 - Don't start scrolling until they kill the first baddie.
 - The goodies and baddies should have sprites for guns and projectiles.
 

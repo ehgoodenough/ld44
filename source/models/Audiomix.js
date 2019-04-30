@@ -25,8 +25,8 @@ const sound = {
 
 export default class Audiomix {
     constructor() {
-        this.soundVolume = LocalStorage.get("soundVolume") || 25
-        this.musicVolume = LocalStorage.get("musicVolume") || 25
+        this.soundVolume = LocalStorage.get("soundVolume") || 50
+        this.musicVolume = LocalStorage.get("musicVolume") || 40
         this.musicPlaying = LocalStorage.get("musicPlaying")
         if(this.musicPlaying == undefined) {
             this.musicPlaying = {"track": "debris", "time": Date.now()}

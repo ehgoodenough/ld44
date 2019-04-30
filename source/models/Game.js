@@ -5,7 +5,7 @@ import Goodie from "models/Goodie.js"
 import Baddie from "models/Baddie.js"
 import World from "models/World.js"
 
-const SPAWN_TIMER = 5000
+const SPAWN_TIMER = 3500
 
 export default class Game {
     constructor(game) {

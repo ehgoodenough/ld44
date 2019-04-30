@@ -19,7 +19,9 @@ export default class World {
 
         this.slow = world.slow
 
-        seedrandom(world.seed || "ld44.", {"global": true})
+        if(world.seed) {
+            seedrandom(world.seed, {"global": true})
+        }
 
         this.levels = []
         for(let number = 0; number < 3; number += 1) {

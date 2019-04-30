@@ -228,6 +228,9 @@ export default class Goodie {
     }
     pickupHeart() {
         this.hearts += 1
+        if(this.hearts > this.maxhearts) {
+            this.hearts = this.maxhearts
+        }
     }
     get opacity() {
         if(this.isDamaged > 0
