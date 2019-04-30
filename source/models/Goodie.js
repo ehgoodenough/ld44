@@ -36,7 +36,7 @@ export default class Goodie {
         this.isDamaged = 0
         // this.hearts = 30
         // this.hearts = 10
-        this.maxhearts = 25
+        this.maxhearts = 15
         this.hearts = this.maxhearts
 
         // PLATFORMER

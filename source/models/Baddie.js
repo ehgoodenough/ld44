@@ -4,6 +4,8 @@ import clonedeep from "lodash.clonedeep"
 import Projectile from "models/Projectile.js"
 import Heart from "models/Heart.js"
 
+const FRAME_WIDTH = 16
+
 export default class Baddie {
     constructor(baddie) {
         this.size = {}
@@ -210,7 +212,8 @@ export default class Baddie {
 
         this.timer -= delta.s
         if(this.timer <= 0
-        && Index.model.game.player.isDead != true) {
+        && Index.model.game.player.isDead != true
+        && this.position.x <= FRAME_WIDTH) {
             if(this.isShooting == false) {
                 this.isShooting = true
                 this.timer = 0.5
@@ -247,7 +250,7 @@ export default class Baddie {
 
         Index.model.audiomix.playSound("explosion" + Math.ceil(Math.random() * 3))
 
-        for(let i = 0; i < this.maxhealth + Math.floor(Math.random() * 1 + 1); i += 1) {
+        for(let i = 0; i < this.maxhealth + 5 + (Math.random() * 1); i += 1) {
             Index.model.game.add(new Heart({
                 "position": this.position,
                 "levelnum": this.levelnum

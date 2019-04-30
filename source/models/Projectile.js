@@ -22,6 +22,8 @@ export default class Projectile {
         this.affiliation = projectile.affiliation
 
         this.color = this.affiliation === "goodies" ? WHITE : RED
+
+        this.hearts = 5
     }
     update(delta) {
         this.position.x += this.velocity.x
