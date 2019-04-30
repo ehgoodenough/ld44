@@ -150,9 +150,11 @@ class Level {
         }
     }
     update(delta) {
-        if(Index.model.game.player.isDead
-        || Index.model.game.isDone) {
-            this.speed = 0
+        if(Index.model.game) {
+            if(Index.model.game.player && Index.model.game.player.isDead
+            || Index.model.game.isDone) {
+                this.speed = 0
+            }
         }
         for(var index in this.points) {
             this.points[index].x -= this.speed

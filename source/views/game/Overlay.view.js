@@ -13,6 +13,9 @@ export default class Overlay {
         )
     }
     get hearts() {
+        if(this.props.game.player.maxhearts == undefined) {
+            return
+        }
         const hearts = []
         for(let i = 0; i < this.props.game.player.maxhearts; i += 1) {
             hearts.push(<div class="Heart" isFull={i < this.props.game.player.hearts}/>)

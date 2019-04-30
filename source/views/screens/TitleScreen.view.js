@@ -17,7 +17,7 @@ export default class TitleScreen {
                     <div class="Links">
                         <Link screen="GameScreen" onClick={this.onClickPlay}>Play</Link>
                         <Link screen="OptionsScreen">Options</Link>
-                        <Link url="https://ldjam.com">Feedback</Link>
+                        <Link url="https://ldjam.com/events/ludum-dare/44/$154164">Feedback</Link>
                     </div>
                 </section>
                 <section class="HeroSection">

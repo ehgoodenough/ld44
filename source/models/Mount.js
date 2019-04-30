@@ -10,10 +10,10 @@ export default class Mount {
         this.audiomix = new Audiomix()
 
         this.screen = "TitleScreen"
-        if(__STAGE__ == "DEVELOPMENT") {
-            this.screen = "GameScreen"
-            this.startGame()
-        }
+        // if(__STAGE__ == "DEVELOPMENT") {
+        //     this.screen = "GameScreen"
+        //     this.startGame()
+        // }
 
         this.demogame = new Game({
             "isDemo": true,
